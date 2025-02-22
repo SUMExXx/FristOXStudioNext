@@ -18,39 +18,39 @@
 
 .custom-heading {
   font-family: var(--font-lily);
-  font-size: 48;
+  font-size: 48px;
 }
 
 .custom-heading1 {
   font-family: var(--font-lily);
-  font-size: 72;
+  font-size: 72px;
 }
 
 .custom-text1 {
   font-family: var(--font-inter);
-  font-size: 16;
+  font-size: 16px;
 }
 
 .custom-text2 {
   font-family: var(--font-inter);
   font-weight: 200;
-  font-size: 16;
+  font-size: 16px;
 }
 
 .custom-text3 {
   font-family: var(--font-inter);
   font-weight: 700;
-  font-size: 16;
+  font-size: 16px;
 }
 
 .custom-display1 {
   font-family: var(--font-michroma);
-  font-size: 20;
+  font-size: 20px;
 }
 
 .custom-display2 {
   font-family: var(--font-michroma);
-  font-size: 16;
+  font-size: 16px;
 }
 
 @layer base {
