@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-export async function GET() {
+async function GET() {
   const robotsTxt = `
     User-agent: *
     Allow: /
@@ -14,3 +14,5 @@ export async function GET() {
     },
   });
 }
+
+export default GET;
