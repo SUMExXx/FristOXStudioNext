@@ -16,33 +16,33 @@ export const metadata: Metadata = {
     },
   ],
   creator: "Suman Debnath",
-  other: {
-    "google-adsense-account": "ca-pub-2246017499375159",
-    "google-site-verification": "u_ExZBcFIU6jz7OJ4L7bORzuQbPqF3MRksHVsMlWQv4"
-  },
-  openGraph: {
-    title: webData.title,
-    description: webData.description,
-    url: website.url,
-    siteName: webData.title,
-    images: [
-      {
-        url: website.url+'/images/opengraph-image.png',
-        width: 1920,
-        height: 1080,
-        alt: 'Image description',
-      },
-    ],
-    locale: 'en_US',
-    type: 'website',
-  },
-  twitter: {
-    card: 'summary_large_image',
-    title: webData.title,
-    description: webData.description,
-    images: [website.url+'/files/opengraph-image.png'],
-    creator: "@SUMExXx666"
-  },
+  // other: {
+  //   "google-adsense-account": "ca-pub-2246017499375159",
+  //   "google-site-verification": "u_ExZBcFIU6jz7OJ4L7bORzuQbPqF3MRksHVsMlWQv4"
+  // },
+  // openGraph: {
+  //   title: webData.title,
+  //   description: webData.description,
+  //   url: website.url,
+  //   siteName: webData.title,
+  //   images: [
+  //     {
+  //       url: website.url+'/images/opengraph-image.png',
+  //       width: 1920,
+  //       height: 1080,
+  //       alt: 'Image description',
+  //     },
+  //   ],
+  //   locale: 'en_US',
+  //   type: 'website',
+  // },
+  // twitter: {
+  //   card: 'summary_large_image',
+  //   title: webData.title,
+  //   description: webData.description,
+  //   images: [website.url+'/files/opengraph-image.png'],
+  //   creator: "@SUMExXx666"
+  // },
 };
 
 export const viewport: Viewport = {
