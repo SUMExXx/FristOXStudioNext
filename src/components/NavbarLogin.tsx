@@ -10,7 +10,7 @@ import Image from 'next/image';
 
 // import Menu from './Menu';
 
-const Navbar = () => {
+const NavbarLogin = () => {
 
 
 
@@ -35,9 +35,9 @@ const Navbar = () => {
             }
         </ul> */}
 
-        <div className='flex justify-center items-center gap-[20px]'>
+        {/* <div className='flex justify-center items-center gap-[20px]'>
             <ul className='items-center md:gap-[20px] gap-[10px] flex'>
-                {/* <li className='flex justify-center items-center transition ease-in-out hover:animate-text hover:text-[#F00000]'>
+                <li className='flex justify-center items-center transition ease-in-out hover:animate-text hover:text-[#F00000]'>
                     <Link rel="canonical" target='_blank' className='md:p-[10px] p-[6px] flex justify-center items-center rounded-full bg-violet outline md:outline-4 outline-2 outline-lightViolet md:-outline-offset-4 -outline-offset-2' href={socials.linkedin}>
                         <LinkedInIcon className='md:h-[24px] md:w-[24px] h-[16px] w-[16px]' sx={{color: 'white'}}/>
                     </Link>
@@ -51,24 +51,24 @@ const Navbar = () => {
                     <Link rel="canonical" target='_blank' className='md:p-[10px] p-[6px] flex justify-center items-center rounded-full bg-violet outline md:outline-4 outline-2 outline-lightViolet md:-outline-offset-4 -outline-offset-2' href={socials.github}>
                         <GitHubIcon className='md:h-[24px] md:w-[24px] h-[16px] w-[16px]' sx={{color: 'white'}}/>
                     </Link>
-                </li> */}
-                <Link rel="canonical" className='md:h-10 px-10 rounded-full flex justify-center items-center font-michroma outline md:outline-1 outline-1 outline-primary md:-outline-offset-1 -outline-offset-1' href={'/signin'}>
+                </li>
+                <Link rel="canonical" className='md:h-10 px-10 rounded-full flex justify-center items-center font-michroma outline md:outline-1 outline-1 outline-primary md:-outline-offset-1 -outline-offset-1' href={''}>
                     <span className='md:text-[16px] text-[12px] font-medium text-foreground'>{contents.login}</span>
                 </Link>
                 
-                <Link rel="canonical" className='md:h-10 px-10 rounded-full flex justify-center items-center bg-tertiary custom-display2' href={'/signup'}>
+                <Link rel="canonical" className='md:h-10 px-10 rounded-full flex justify-center items-center bg-tertiary custom-display2' href={''}>
                     <span className='md:text-[16px] text-[12px] font-medium text-foreground'>{contents.signup}</span>
                 </Link>
                 
             </ul>
             <div className='flex justify-center items-center md:hidden' title='hamburgerMenu'>
-                {/* <HamburgerMenu/> */}
+                <HamburgerMenu/>
             </div>
             
-        </div>
+        </div> */}
         
     </nav>
   )
 }
 
-export default Navbar
+export default NavbarLogin

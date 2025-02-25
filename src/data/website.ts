@@ -78,6 +78,20 @@ interface WebContent{
     footerLinks: NavbarLink[],
     text11: string,
     text12: string,
+    text13:string,
+    text14: string,
+    text15: string,
+    text16: string,
+    text17: string,
+    text18: string,
+    text19: string,
+    text20: string,
+    text21: string,
+    text22: string,
+    text23: string,
+    text24: string,
+    text25: string,
+    text26: string
 }
 
 export const contents: WebContent= {
@@ -225,7 +239,21 @@ export const contents: WebContent= {
         }
     ],
     text11: "What People say",
-    text12: "Your designs? Too good to stay flat. Your creativity? Too powerful to be stuck in 2D. It's time to bring your vision to life—no fancy software, no tech skills, just pure creative power at your fingertips. Upload Your Design. Watch It Instantly Transform"
+    text12: "Your designs? Too good to stay flat. Your creativity? Too powerful to be stuck in 2D. It's time to bring your vision to life—no fancy software, no tech skills, just pure creative power at your fingertips. Upload Your Design. Watch It Instantly Transform",
+    text13: "Sign In",
+    text14: "Welcome back! Please enter details",
+    text15: "Email",
+    text16: "Password",
+    text17: "Forgot password?",
+    text18: "SIGN IN",
+    text19: "Don't have an account?",
+    text20: "Sign Up",
+    text21: "Enter your details to register",
+    text22: "Already have an account?",
+    text23: "Sign In",
+    text24: "SIGN UP",
+    text25: "Successfully Signed Up!",
+    text26: "Redirecting to Sign In...",
 }
 
 interface Model{
