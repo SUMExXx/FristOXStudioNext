@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
-export async function GET(req: NextRequest, { params }: { params: { id: string } }) {
-  return NextResponse.json({ message: `User ID: ${params.id}` });
+interface Params {
+  params: { id: string };
 }
 
+export async function GET(req: NextRequest, { params }: Params) {
+  return NextResponse.json({ message: `User ID: ${params.id}` });
+}
