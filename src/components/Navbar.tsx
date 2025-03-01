@@ -19,7 +19,7 @@ const Navbar = () => {
         
         <Link rel="canonical" href={process.env.NEXT_PUBLIC_BASE_URL || '/'} className='flex items-center gap-2 md:gap-4 outline-none'>
             <div className='flex items-center md:gap-[10px]'>
-                <Image src={'/icons/fristox-studio.png'} width={121} height={40} draggable={false} alt={"Frist'OX Studio"} className='md:w-[121px] md:h-[40px] w-[235px] h-[30px]'></Image>
+                <Image src={'/icons/fristox-studio.png'} width={121} height={40} draggable={false} alt={"Frist'OX Studio"} className='brightness-0 dark:brightness-100 md:w-[121px] md:h-[40px] w-[235px] h-[30px]'></Image>
                 {/* <Logo className='md:w-[235px] md:h-[30px] w-[235px] h-[20px]' fontSize='inherit' height={30} width={235}/> */}
             </div>
         </Link>
@@ -57,7 +57,7 @@ const Navbar = () => {
                 </Link>
                 
                 <Link rel="canonical" className='md:h-10 px-10 rounded-full flex justify-center items-center bg-tertiary custom-display2' href={'/signup'}>
-                    <span className='md:text-[16px] text-[12px] font-medium text-foreground'>{contents.signup}</span>
+                    <span className='md:text-[16px] text-[12px] font-medium text-foreground2'>{contents.signup}</span>
                 </Link>
                 
             </ul>

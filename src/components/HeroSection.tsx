@@ -7,7 +7,7 @@ function HeroSection() {
     <div className='w-full flex flex-col items-center justify-start md:px-32 md:py-10'>
         <div className='bg-primary rounded-[40px] flex justify-center items-center md:h-[520px] w-full md:px-10'>
             <div className='flex flex-col w-full items-start justify-center gap-10 md:pr-10'>
-                <h1 className='z-30 font-bold text-white custom-heading1 md:w-[900px] leading-[90px]'>{contents.mainTitle}</h1>
+                <h1 className='z-30 font-bold text-white custom-heading1 md:w-[800px] leading-[90px]'>{contents.mainTitle}</h1>
                 <p className='z-30 custom-text2 md:w-[640px] text-white justify-start text-left'>{contents.mainSubtitle}</p>
                 <Link href='/#contact' className='md:px-10 md:py-5 rounded-full bg-tertiary text-white custom-display1'>
                   {contents.mainButton}

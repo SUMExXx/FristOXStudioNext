@@ -4,7 +4,7 @@ import React from 'react'
 function Features() {
   return (
     <div className='w-full flex flex-col items-center justify-start md:px-32 md:py-10 md:gap-10'>
-        <h2 className='custom-heading text-secondary text-center'>
+        <h2 className='custom-heading text-foreground text-center'>
           {contents.text1}
         </h2>
         <div className='flex flex-wrap justify-center items-center w-full md:gap-10'>

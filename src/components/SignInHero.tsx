@@ -37,7 +37,7 @@ function SignInHero() {
     <div className='w-full flex items-center justify-start md:px-32 md:py-10 md:gap-10'>
         <div className='flex flex-col justify-center items-center md:w-full md:px-10 md:gap-10'>
           <div className='flex w-full flex-col items-center justify-center md:gap-[10px]'>
-            <h4 className='custom-heading text-foreground'>{contents.text13}</h4>
+            <h4 className='custom-heading text-tertiary'>{contents.text13}</h4>
             <h4 className='custom-text2 text-foreground'>{contents.text14}</h4>
           </div>
           <form className='flex flex-col max-w-96 md:w-96 items-center justify-center md:gap-5' onSubmit={(e) => submit(e)}>
@@ -63,7 +63,7 @@ function SignInHero() {
                 placeholder="Enter password"
               />
             </div>
-            <Link href="/forgot" className='w-full text-right text-primary custom-text1'>{contents.text17}</Link>
+            <Link href="/forgot" className='w-full text-right text-tertiary custom-text1'>{contents.text17}</Link>
             <button type='submit' className='w-full p-[10px] bg-primary text-white rounded-[10px] custom-display2 flex justify-center items-center'>
               {
                 spin? 
@@ -75,7 +75,7 @@ function SignInHero() {
           </form>
           <div className='flex justify-center items-center md:gap-2 w-full'>
             <span className="custom-text2 text-foreground">{contents.text19}</span>
-            <Link href="/signup" className='text-primary custom-text1'>{contents.text20}</Link>
+            <Link href="/signup" className='text-tertiary custom-text1'>{contents.text20}</Link>
           </div>
         </div>
         <div className='bg-primary rounded-[40px] flex justify-center items-center md:h-[520px] md:w-full md:px-10'>

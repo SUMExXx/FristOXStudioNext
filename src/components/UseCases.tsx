@@ -5,7 +5,7 @@ function UseCases() {
   return (
     <div className='w-full flex flex-col items-center justify-start md:py-10 md:gap-20'>
       <div className='w-full flex flex-col items-center justify-start md:py-10 md:px-32 md:gap-10 bg-primary'>
-        <h2 className='custom-heading text-secondary text-center'>
+        <h2 className='custom-heading text-foreground2 text-center'>
           {contents.text1}
         </h2>
         <div className='flex flex-warp justify-between items-start md:px-10 w-full'>
