@@ -1,10 +1,11 @@
 'use client';
 import React, { useEffect, useRef } from 'react'
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, usePathname } from "next/navigation";
 
-function StatsHome() {
+function StatsPage() {
 
   const searchParams = useSearchParams();
+  const pathname = usePathname();
   const ref = searchParams.get("ref");
   const hasRun = useRef(false); // Track if function has run
 
@@ -18,10 +19,10 @@ function StatsHome() {
       const ipAddress = ipResponse.ip;
 
         // Send Visit Data
-      await fetch('/api/stats/home-visit', {
+      await fetch('/api/stats/visit', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ page: '/', referrer: ref || '', ipAddress }),
+        body: JSON.stringify({ page: pathname, referrer: ref || '', ipAddress }),
       });
     } catch (error) {
       console.error("Error adding visit:", error);
@@ -37,4 +38,4 @@ function StatsHome() {
   )
 }
 
-export default StatsHome
+export default StatsPage

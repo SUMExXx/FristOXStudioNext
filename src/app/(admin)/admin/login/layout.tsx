@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import "../globals.css";
+import "../../../globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { webData, website } from "@/data/website";
 import { inter, lillyScriptOne, michroma } from "@/data/fonts";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export const metadata: Metadata = {
   title: webData.title,
@@ -60,11 +62,8 @@ export default function RootLayout({
       <body className={`${lillyScriptOne.variable} ${michroma.variable} ${inter.variable}antialiased`}>
         {/* <StateProvider>
           <AuthContextProvider> */}
-            <Navbar/>
-            <div className='mt-[60px] md:mt-[80px] text-black'>
               {children}
-            </div>
-            <Footer/>
+              <ToastContainer position="bottom-right" autoClose={3000} />
             {/* <Spinner/> */}
           {/* </AuthContextProvider>
         </StateProvider> */}

@@ -23,6 +23,11 @@ function SignInHero() {
       },
       body: JSON.stringify({ email: email, password: pass }),
     })
+
+    if(res.status === 401){
+      setSpin(false);
+      toast.error('Invalid Credentials!')
+    }
     
     if(res.status === 200){
       setSpin(false);

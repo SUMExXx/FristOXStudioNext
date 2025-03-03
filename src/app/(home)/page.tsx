@@ -3,7 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import ModelOptions from "@/components/ModelOptions";
 import Pricing from "@/components/Pricing";
 import QNA from "@/components/QNA";
-import StatsHome from "@/components/StatsHome";
+import StatsPage from "@/components/StatsPage";
 import Testimonials from "@/components/Testimonials";
 import UniqueFeatures from "@/components/UniqueFeatures";
 import UseCases from "@/components/UseCases";
@@ -37,7 +37,7 @@ export default function Home() {
         <section className="w-full">
           <QNA/>
         </section>
-        <StatsHome/>
+        <StatsPage/>
       </main>
     </div>
   );
