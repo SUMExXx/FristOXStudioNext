@@ -1,6 +1,6 @@
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from "@/components/ui/breadcrumb";
 import { SidebarInset, SidebarTrigger } from "@/components/ui/sidebar";
-import { DataTableDemo, UsersList } from "@/components/UsersList";
+import { UsersList } from "@/components/UsersList";
 import { Separator } from "@radix-ui/react-separator";
 
 export default function Home() {
