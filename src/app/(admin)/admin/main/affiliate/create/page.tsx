@@ -46,7 +46,7 @@ export default function Home() {
   );
 }
 
-export function LoginForm({
+function LoginForm({
   className,
   ...props
 }: React.ComponentPropsWithoutRef<"div">) {
