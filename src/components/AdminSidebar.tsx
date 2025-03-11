@@ -108,17 +108,17 @@ const data = {
       ],
     },
     {
-      title: "Models",
+      title: "Affiliates",
       url: "#",
       icon: Bot,
       items: [
         {
-          title: "Genesis",
-          url: "#",
+          title: "List",
+          url: "/admin/main/affiliate/list",
         },
         {
-          title: "Explorer",
-          url: "#",
+          title: "Create",
+          url: "/admin/main/affiliate/create",
         },
         {
           title: "Quantum",

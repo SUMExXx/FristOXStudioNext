@@ -1,11 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import "../../../globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { webData, website } from "@/data/website";
+import { webData } from "@/data/website";
 import { inter, lillyScriptOne, michroma } from "@/data/fonts";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
+import { SidebarProvider } from "@/components/ui/sidebar"
 import { AdminSidebar } from "@/components/AdminSidebar"
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export const metadata: Metadata = {
   title: webData.title,
@@ -66,6 +66,7 @@ export default function RootLayout({
               <AdminSidebar />
               {children}
             </SidebarProvider>
+            <ToastContainer position="bottom-right" autoClose={3000} />
             {/* <Spinner/> */}
           {/* </AuthContextProvider>
         </StateProvider> */}

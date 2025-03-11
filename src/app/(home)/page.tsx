@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import ModelOptions from "@/components/ModelOptions";
 import Pricing from "@/components/Pricing";
 import QNA from "@/components/QNA";
+import ReferHome from "@/components/ReferHome";
 import StatsPage from "@/components/StatsPage";
 import Testimonials from "@/components/Testimonials";
 import UniqueFeatures from "@/components/UniqueFeatures";
@@ -38,6 +39,7 @@ export default function Home() {
           <QNA/>
         </section>
         <StatsPage/>
+        <ReferHome/>
       </main>
     </div>
   );
