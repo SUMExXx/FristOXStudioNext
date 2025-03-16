@@ -18,6 +18,7 @@ export async function middleware(request: NextRequest) {
   const url = request.nextUrl.clone();
   const adminToken = request.cookies.get('admin_token')?.value;
   const userToken = request.cookies.get('token')?.value;
+  const affiliateToken = request.cookies.get('affiliate_token')?.value;
   const host = request.headers.get('host');
   const subdomain = host?.split('.')[0] || '';
 
@@ -44,6 +45,14 @@ export async function middleware(request: NextRequest) {
   if (url.pathname.startsWith('/studio')) {
     if (!userToken || !(await verifyToken(userToken))) {
       url.pathname = '/signin';
+      return NextResponse.redirect(url);
+    }
+  }
+
+  // Restrict access to /affiliate/* if token is missing or invalid
+  if (url.pathname.startsWith('/affiliate') && url.pathname !== '/affiliate-signin') {
+    if (!affiliateToken || !(await verifyToken(affiliateToken))) {
+      url.pathname = '/affiliate-signin';
       return NextResponse.redirect(url);
     }
   }
