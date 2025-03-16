@@ -26,7 +26,11 @@ function SignUpHero() {
     
     if(res.status === 201){
       setSpin(false);
-      toast.success('🎉 Successfully Signed Up! Verify your email.')
+      toast.success('🎉 Successfully Signed Up! Verify your email.',
+        {
+          position: "top-center"
+        }
+      )
       setTimeout(() => {
         router.push('/signin');
       }, 3000);

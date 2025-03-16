@@ -25,12 +25,20 @@ function SignInAffiliate() {
 
     if(res.status === 401){
       setSpin(false);
-      toast.error('Invalid Credentials!')
+      toast.error('Invalid Credentials!',
+        {
+          position: "top-center"
+        }
+      )
     }
     
     if(res.status === 200){
       setSpin(false);
-      toast.success('🎉 Successfully Signed In!')
+      toast.success('🎉 Successfully Signed In!',
+        {
+          position: "top-center"
+        }
+      )
       setTimeout(() => {
         router.push(`/affiliate/${username}`);
       }, 3000);
