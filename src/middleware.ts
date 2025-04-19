@@ -49,6 +49,19 @@ export async function middleware(request: NextRequest) {
     }
   }
 
+  // Restrict access to /webgl/* if token is missing or invalid
+
+  const referer = request.headers.get('referer') || '';
+  // console.log(referer)
+  if (url.pathname.startsWith('/webgl')) {
+    if (!userToken || !(await verifyToken(userToken))) {
+      if(referer.includes("/studio") || referer.includes("/webgl")){
+        url.pathname = '/';
+        return NextResponse.redirect(url);
+      }
+    }
+  }
+
   // Restrict access to /affiliate/* if token is missing or invalid
   if (url.pathname.startsWith('/affiliate') && url.pathname !== '/affiliate-signin') {
     if (!affiliateToken || !(await verifyToken(affiliateToken))) {

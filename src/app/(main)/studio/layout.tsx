@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import "../../globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { webData, website } from "@/data/website";
+import { webData } from "@/data/website";
 import { inter, lillyScriptOne, michroma } from "@/data/fonts";
 
 export const metadata: Metadata = {
@@ -64,7 +64,7 @@ export default function RootLayout({
             <div className='mt-[60px] md:mt-[80px] text-black'>
               {children}
             </div>
-            <Footer/>
+            {/* <Footer/> */}
             {/* <Spinner/> */}
           {/* </AuthContextProvider>
         </StateProvider> */}
