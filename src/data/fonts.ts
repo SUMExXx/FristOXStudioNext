@@ -1,15 +1,9 @@
-import { Michroma, Lily_Script_One, Inter } from "next/font/google";
+import { Poppins, Inter } from "next/font/google";
 
-export const michroma = Michroma({ 
+export const poppins = Poppins({ 
   variable: "--font-michroma",
   subsets: ["latin"],
   weight: ["400"],
-});
-
-export const lillyScriptOne = Lily_Script_One({
-    variable: "--font-lilly",
-    subsets: ["latin"],
-    weight: ["400"],
 });
 
 export const inter = Inter({

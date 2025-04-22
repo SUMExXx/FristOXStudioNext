@@ -1,198 +1,89 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --font-lily: "Lily Script One", cursive;
-  --font-michroma: "Michroma";
-  --font-inter: "Inter";
-}
+@import "tailwindcss";
 
 .font-lily {
-  font-family: var(--font-lily);
+  font-family: var(--font-primary);
 }
 
 .font-michroma {
-  font-family: var(--font-michroma);
+  font-family: var(--font-primary);
 }
 
 .custom-heading {
-  font-family: var(--font-lily);
+  font-family: var(--font-primary);
   font-size: 36px;
 }
 
 .custom-heading1 {
-  font-family: var(--font-lily);
+  font-family: var(--font-primary);
+  font-weight: 700;
+  font-style: italic;
   font-size: 64px;
 }
 
 .custom-text1 {
-  font-family: var(--font-inter);
+  font-family: var(--font-tertiary);
   font-size: 16px;
 }
 
 .custom-text2 {
-  font-family: var(--font-inter);
-  font-weight: 200;
+  font-family: var(--font-tertiary);
+  font-weight: 400;
   font-size: 16px;
 }
 
 .custom-text3 {
-  font-family: var(--font-inter);
+  font-family: var(--font-tertiary);
   font-weight: 700;
   font-size: 16px;
 }
 
 .custom-display1 {
-  font-family: var(--font-michroma);
+  font-family: var(--font-primary);
+  font-weight: 700;
   font-size: 20px;
 }
 
 .custom-display2 {
-  font-family: var(--font-michroma);
+  font-family: var(--font-primary);
   font-size: 16px;
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
+:root {
+  --background: #000000;
+  --foreground: #FFFFFF;
+  --primary: #AEEED1;
+  --secondary: #77DEB6;
+  --font-primary: "Poppins";
+  --font-secondary: "Michroma";
+  --font-tertiary: "Inter";
+}
 
-  body {
-    @apply bg-background text-foreground;
-  }
-  :root {
-    --background: 0 0% 3.9%;
-      --foreground: 0 0% 98%;
-      --card: 0 0% 3.9%;
-      --card-foreground: 0 0% 98%;
-      --popover: 0 0% 3.9%;
-      --popover-foreground: 0 0% 98%;
-      --primary: 0 0% 98%;
-      --primary-foreground: 0 0% 9%;
-      --secondary: 0 0% 14.9%;
-      --secondary-foreground: 0 0% 98%;
-      --muted: 0 0% 14.9%;
-      --muted-foreground: 0 0% 63.9%;
-      --accent: 0 0% 14.9%;
-      --accent-foreground: 0 0% 98%;
-      --destructive: 0 62.8% 30.6%;
-      --destructive-foreground: 0 0% 98%;
-      --border: 0 0% 14.9%;
-      --input: 0 0% 14.9%;
-      --ring: 0 0% 83.1%;
-      --chart-1: 220 70% 50%;
-      --chart-2: 160 60% 45%;
-      --chart-3: 30 80% 55%;
-      --chart-4: 280 65% 60%;
-      --chart-5: 340 75% 55%;
-      --sidebar-background: 240 5.9% 10%;
-      --sidebar-foreground: 240 4.8% 95.9%;
-      --sidebar-primary: 224.3 76.3% 48%;
-      --sidebar-primary-foreground: 0 0% 100%;
-      --sidebar-accent: 240 3.7% 15.9%;
-      --sidebar-accent-foreground: 240 4.8% 95.9%;
-      --sidebar-border: 240 3.7% 15.9%;
-      --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-  .dark {
-    --background: 0 0% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 0 0% 14.9%;
-    --secondary-foreground: 0 0% 98%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-primary: var(--primary);
+  --color-secondary: var(--secondary);
+    /* --font-primary: var(--font-plus-jakarta-sans); */
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    @apply dark;
+    --background: #000000;
+    --foreground: #FFFFFF;
+    --primary: #AEEED1;
+    --secondary: #77DEB6;
+    --font-primary: "Poppins";
+    --font-secondary: "Michroma";
+    --font-tertiary: "Inter";
   }
 }
 
-@layer base {
-  :root {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
-    --foreground2: 0 0% 100%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 293.5, 100%, 23.53%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 255.6 100% 90.2%;
-    --secondary-foreground: 0 0% 98%;
-    --tertiary: 299.33, 100%, 34.9%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-  }
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-primary);
+}
 
-  .dark {
-    --background: 0 0% 0%;
-    --foreground: 0 0% 100%;
-    --foreground2: 0 0% 100%;
-    --card: 0 0% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 0 0% 3.9%;
-    --popover-foreground: 0 0% 98%;
-    --primary: 293.5, 100%, 23.53%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 255.6 100% 90.2%;
-    --secondary-foreground: 0 0% 98%;
-    --tertiary: 299.33, 100%, 34.9%;
-    --muted: 0 0% 14.9%;
-    --muted-foreground: 0 0% 63.9%;
-    --accent: 0 0% 14.9%;
-    --accent-foreground: 0 0% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 14.9%;
-    --input: 0 0% 14.9%;
-    --ring: 0 0% 83.1%;
-    --chart-1: 220 70% 50%;
-    --chart-2: 160 60% 45%;
-    --chart-3: 30 80% 55%;
-    --chart-4: 280 65% 60%;
-    --chart-5: 340 75% 55%;
-  }
+html {
+  scroll-behavior: smooth;
 }

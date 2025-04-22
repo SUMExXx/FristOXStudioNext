@@ -3,7 +3,7 @@ import "../../globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { webData } from "@/data/website";
-import { inter, lillyScriptOne, michroma } from "@/data/fonts";
+import { inter, poppins } from "@/data/fonts";
 
 export const metadata: Metadata = {
   title: webData.title,
@@ -57,7 +57,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${lillyScriptOne.variable} ${michroma.variable} ${inter.variable}antialiased`}>
+      <body className={`${poppins.variable} ${inter.variable}antialiased`}>
         {/* <StateProvider>
           <AuthContextProvider> */}
             <Navbar/>

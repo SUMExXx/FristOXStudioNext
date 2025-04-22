@@ -15,11 +15,11 @@ const Navbar = () => {
 
 
   return (
-    <nav className='z-50 flex w-full fixed top-0 justify-between md:h-[80px] h-[60px] bg-grey md:px-32 p-[10px] bg-background border-b-[1px] border-primary' id='navbar_container'>
+    <nav className='z-50 flex w-full fixed top-0 justify-between md:h-[80px] h-[60px] bg-grey md:px-20 p-[10px] bg-background border-b-[1px] border-primary' id='navbar_container'>
         
         <Link rel="canonical" href={process.env.NEXT_PUBLIC_BASE_URL || '/'} className='flex items-center gap-2 md:gap-4 outline-none'>
             <div className='flex items-center md:gap-[10px]'>
-                <Image src={'/icons/fristox-studio.png'} width={121} height={40} draggable={false} alt={"Frist'OX Studio"} className='brightness-0 dark:brightness-100 md:w-[121px] md:h-[40px] w-[235px] h-[30px]'></Image>
+                <Image src={'/icons/fristox-studio.png'} width={121} height={40} draggable={false} alt={"Frist'OX Studio"} className='md:w-[121px] md:h-[40px] w-[235px] h-[30px]'></Image>
                 {/* <Logo className='md:w-[235px] md:h-[30px] w-[235px] h-[20px]' fontSize='inherit' height={30} width={235}/> */}
             </div>
         </Link>
@@ -52,12 +52,12 @@ const Navbar = () => {
                         <GitHubIcon className='md:h-[24px] md:w-[24px] h-[16px] w-[16px]' sx={{color: 'white'}}/>
                     </Link>
                 </li> */}
-                <Link rel="canonical" className='md:h-10 px-10 rounded-full flex justify-center items-center font-michroma outline md:outline-1 outline-1 outline-primary md:-outline-offset-1 -outline-offset-1' href={'/signin'}>
-                    <span className='md:text-[16px] text-[12px] font-medium text-foreground'>{contents.login}</span>
+                <Link rel="canonical" className='md:h-10 px-10 rounded-full flex justify-center items-center font-michroma outline md:outline-1 outline-primary md:-outline-offset-1 -outline-offset-1' href={'/signin'}>
+                    <span className='md:text-[16px] text-[12px] custom-display2 text-foreground'>{contents.login}</span>
                 </Link>
                 
-                <Link rel="canonical" className='md:h-10 px-10 rounded-full flex justify-center items-center bg-tertiary custom-display2' href={'/signup'}>
-                    <span className='md:text-[16px] text-[12px] font-medium text-foreground2'>{contents.signup}</span>
+                <Link rel="canonical" className='md:h-10 px-10 rounded-full flex justify-center items-center bg-primary custom-display2' href={'/signup'}>
+                    <span className='md:text-[16px] text-[12px] custom-display2 text-background'>{contents.signup}</span>
                 </Link>
                 
             </ul>

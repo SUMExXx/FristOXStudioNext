@@ -77,10 +77,10 @@ function SignInHero() {
               />
             </div>
             <Link href="/forgot" className='w-full text-right text-tertiary custom-text1'>{contents.text17}</Link>
-            <button type='submit' className='w-full p-[10px] bg-primary text-white rounded-[10px] custom-display2 flex justify-center items-center'>
+            <button type='submit' className='w-full p-[10px] bg-primary text-background rounded-[10px] custom-display2 flex justify-center items-center'>
               {
                 spin? 
-                <div className="w-6 h-6 border-4 border-foreground border-t-transparent rounded-full animate-spin"></div>
+                <div className="w-6 h-6 border-4 border-background border-t-transparent rounded-full animate-spin"></div>
                 :
                 contents.text18
               }
@@ -88,7 +88,7 @@ function SignInHero() {
           </form>
           <div className='flex justify-center items-center md:gap-2 w-full'>
             <span className="custom-text2 text-foreground">{contents.text19}</span>
-            <Link href="/signup" className='text-tertiary custom-text1'>{contents.text20}</Link>
+            <Link href="/signup" className='text-primary custom-text1'>{contents.text20}</Link>
           </div>
         </div>
         <div className='bg-primary rounded-[40px] flex justify-center items-center md:h-[520px] md:w-full md:px-10'>

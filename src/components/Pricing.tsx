@@ -30,7 +30,7 @@ function Pricing() {
           </div>
           <div className='flex flex-col px-[20px] bg-primary rounded-[40px]'>
             <div className='w-full h-[40px] flex justify-center items-center md:p-[4px] md:gap-[10px]'>
-              <h3 className='custom-text3 text-foreground'>{contents.text5}</h3>
+              <h3 className='custom-text3 text-background'>{contents.text5}</h3>
             </div>
             <div className='md:w-[340px] md:h-[300px] md:rounded-[30px] bg-foreground md:p-5 flex flex-col justify-between items-center md:gap-10'>
               <h4 className='custom-text3 w-full text-left text-background'>{contents.text9}</h4>

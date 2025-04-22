@@ -11,8 +11,8 @@ function UseCases() {
         <div className='flex flex-warp justify-between items-start md:px-10 w-full'>
             {contents.usecases.map((use, index) => (
               <div key={index} className='flex flex-col items-start justify-center md:gap-[10px] md:w-[240px]'>
-                <h4 className='custom-display1 w-full text-white text-left'>{use.name}</h4>
-                <h6 className='custom-text2 w-full text-white text-left'>{use.text}</h6>
+                <h4 className='custom-display1 w-full text-background text-left'>{use.name}</h4>
+                <h6 className='custom-text2 w-full text-background text-left'>{use.text}</h6>
               </div>
             ))}
         </div>
