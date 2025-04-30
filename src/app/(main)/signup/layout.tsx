@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "../../globals.css";
 import Footer from "@/components/Footer";
-import { webData, website } from "@/data/website";
+import { webData } from "@/data/website";
 import { inter, poppins } from "@/data/fonts";
 import NavbarLogin from "@/components/NavbarLogin";
 import { ToastContainer } from "react-toastify";
@@ -59,7 +59,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${poppins.variable} ${inter.variable}antialiased`}>
+      <body className={`${poppins.variable} ${inter.variable} antialiased`}>
         {/* <StateProvider>
           <AuthContextProvider> */}
             <NavbarLogin/>

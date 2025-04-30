@@ -1,9 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "../../../globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
-import { webData, website } from "@/data/website";
-import { inter, lillyScriptOne, michroma } from "@/data/fonts";
+import { webData } from "@/data/website";
+import { inter, poppins } from "@/data/fonts";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -59,7 +57,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${lillyScriptOne.variable} ${michroma.variable} ${inter.variable}antialiased`}>
+      <body className={`${poppins.variable} ${inter.variable} antialiased`}>
         {/* <StateProvider>
           <AuthContextProvider> */}
               {children}

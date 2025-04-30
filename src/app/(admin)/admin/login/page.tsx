@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-import Image from "next/image"
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { toast } from "react-toastify";
@@ -18,7 +17,7 @@ export default function AdminLoginPage() {
             <div className="flex h-6 w-6 items-center justify-center rounded-md bg-white text-primary-foreground">
               <GalleryVerticalEnd className="size-4" />
             </div>
-            Frist'Ox Studio
+            Frist&apos;Ox Studio
           </a>
         </div>
         <div className="flex flex-1 items-center justify-center">
