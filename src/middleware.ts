@@ -46,6 +46,9 @@ export async function middleware(request: NextRequest) {
     if (!userToken || !(await verifyToken(userToken))) {
       url.pathname = '/signin';
       return NextResponse.redirect(url);
+    } else if (url.pathname === '/studio') {
+      url.pathname = '/studio/3D';
+      return NextResponse.redirect(url);
     }
   }
 

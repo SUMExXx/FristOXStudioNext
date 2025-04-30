@@ -1,9 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import "../../globals.css";
-import Navbar from "@/components/Navbar";
-import Footer from "@/components/Footer";
 import { webData } from "@/data/website";
 import { inter, poppins } from "@/data/fonts";
+import NavbarStudio from "@/components/NavbarStudio";
 
 export const metadata: Metadata = {
   title: webData.title,
@@ -60,7 +59,7 @@ export default function RootLayout({
       <body className={`${poppins.variable} ${inter.variable}antialiased`}>
         {/* <StateProvider>
           <AuthContextProvider> */}
-            <Navbar/>
+            <NavbarStudio/>
             <div className='mt-[60px] md:mt-[80px] text-black'>
               {children}
             </div>

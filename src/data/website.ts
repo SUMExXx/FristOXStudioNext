@@ -298,3 +298,8 @@ export const socials: Socials = {
     phone: 'tel:+918974863731',
     email: 'mailto:sumexxx666@gmail.com'
 }
+
+export enum Types3D {
+    shirt = 1,
+    pants = 2,
+}
