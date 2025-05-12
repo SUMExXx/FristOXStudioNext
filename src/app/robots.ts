@@ -9,7 +9,7 @@ const robots = (): MetadataRoute.Robots => {
         disallow: "/admin",
       },
     ],
-    sitemap: "https://fristox-studio.vercel.app.com/sitemap.xml",
+    sitemap: "https://fristox-studio.vercel.app/sitemap.xml",
   };
 };
 

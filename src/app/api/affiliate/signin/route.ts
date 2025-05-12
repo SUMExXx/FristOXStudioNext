@@ -31,7 +31,7 @@ export async function POST(req: Request) {
     }
 
     // Generate JWT token using `jose`
-    const token = await new SignJWT({ adminId: affiliate._id.toString(), username: affiliate.username })
+    const token = await new SignJWT({ adminId: (affiliate._id as { toString: () => string }).toString(), username: affiliate.username })
       .setProtectedHeader({ alg: 'HS256' })
       .setExpirationTime(`${JWT_EXPIRATION}s`)
       .sign(JWT_SECRET_KEY);
