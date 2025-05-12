@@ -1,6 +1,24 @@
 import StatsPage from "@/components/StatsPage";
+import planVerify from "@/lib/utils/planVerify";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
-export default function Home() {
+export default async function Home() {
+
+  const cookiesData = await cookies();
+
+  const token = cookiesData.get('token')?.value;
+
+  if (!token) {
+    redirect('/studio/3D');
+  }
+
+  const status = await planVerify(token);
+
+  if (!status) {
+    redirect('/studio/3D');
+  }
+
   return (
     <div className="w-full h-full flex flex-col items-center justify-start">
       <main className="w-full flex flex-col items-center justify-start">

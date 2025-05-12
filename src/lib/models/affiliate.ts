@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import { Schema, Document, model } from 'mongoose';
 
 interface Affiliate extends Document {
   username: string;
@@ -9,7 +9,7 @@ interface Affiliate extends Document {
   refs: string[];
 }
 
-const AffiliateSchema = new mongoose.Schema<Affiliate>({
+const AffiliateSchema = new Schema<Affiliate>({
     username: { 
         type: String, 
         required: true, 
@@ -33,4 +33,6 @@ const AffiliateSchema = new mongoose.Schema<Affiliate>({
     }
 }, { timestamps: true });
 
-export default mongoose.models.Affiliate || mongoose.model('Affiliate', AffiliateSchema);
+const Affiliate = model<Affiliate>('Affiliate', AffiliateSchema);
+
+export default Affiliate;

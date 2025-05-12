@@ -31,7 +31,6 @@ const NavbarStudio = () => {
                 setStyle(0)
                 break;
         }
-        console.log(path)
     }, [path])
 
     return (
@@ -62,7 +61,7 @@ const NavbarStudio = () => {
                 <Link href={"/studio/2D"} className={`md:px-[20px] h-full border-b-4 ${style == 1? "border-b-primary": "border-b-background"} flex justify-center items-center`}>
                     2D Design
                 </Link>
-                <Link href={"/"} rel="canonical" className='md:h-10 px-10 rounded-full flex justify-center items-center outline md:outline-1 outline-primary md:-outline-offset-1 -outline-offset-1 bg-primary md:text-[16px] text-[12px] custom-display2 text-background'>
+                <Link href={"/studio/upgrade"} rel="canonical" className='md:h-10 px-10 rounded-full flex justify-center items-center outline md:outline-1 outline-primary md:-outline-offset-1 -outline-offset-1 bg-primary md:text-[16px] text-[12px] custom-display2 text-background'>
                     UPGRADE
                 </Link>
                 <button className='flex justify-center items-center h-[40px] w-[40px] bg-primary rounded-full' title='menu'>

@@ -1,4 +1,4 @@
-import { Schema, Document, model, models } from 'mongoose';
+import { Schema, Document, model } from 'mongoose';
 
 interface Visit extends Document {
   visitTime: Date;
@@ -18,4 +18,6 @@ const VisitSchema = new Schema<Visit>(
   }
 );
 
-export default models.Visit || model<Visit>('Visit', VisitSchema);
+const Visit = model<Visit>('Visit', VisitSchema);
+
+export default Visit;

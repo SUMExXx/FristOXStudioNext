@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next";
 
-const BASE_URL = "https://yourdomain.com"; // Replace with your actual domain
+const BASE_URL = "https://fristox-studio.vercel.app"; // Replace with your actual domain
 
 const sitemap = (): MetadataRoute.Sitemap => {
   return [

@@ -46,7 +46,7 @@ export async function middleware(request: NextRequest) {
     if (!userToken || !(await verifyToken(userToken))) {
       url.pathname = '/signin';
       return NextResponse.redirect(url);
-    } else if (url.pathname === '/studio') {
+    } else if (url.pathname === '/studio' || url.pathname === '/studio/3D/tshirt') {
       url.pathname = '/studio/3D';
       return NextResponse.redirect(url);
     }
@@ -82,7 +82,7 @@ export async function middleware(request: NextRequest) {
   return NextResponse.next();
 }
 
-export const config = {
-  matcher: ['/:path*'], // Apply middleware to all routes
-  runtime: 'experimental-edge', // Use Edge runtime
-};
+// export const config = {
+//   matcher: ['/:path*'], // Apply middleware to all routes
+//   runtime: 'experimental-edge', // Use Edge runtime
+// }

@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import { Schema, Document, model } from 'mongoose';
 
 interface Admin extends Document {
   email: string;
@@ -6,7 +6,7 @@ interface Admin extends Document {
   createdAt: Date;
 }
 
-const AdminSchema = new mongoose.Schema<Admin>({
+const AdminSchema = new Schema<Admin>({
     email: { 
         type: String, 
         required: true, 
@@ -18,4 +18,6 @@ const AdminSchema = new mongoose.Schema<Admin>({
     },
 }, { timestamps: true });
 
-export default mongoose.models.Admin || mongoose.model('Admin', AdminSchema);
+const Admin = model<Admin>('Admin', AdminSchema);
+
+export default Admin;

@@ -63,7 +63,7 @@ export default function RootLayout({
         {/* <StateProvider>
           <AuthContextProvider> */}
             <NavbarLogin/>
-            <div className='mt-[60px] md:mt-[80px] text-black'>
+            <div className='mt-[60px] md:mt-[80px] md:min-h-[calc(100vh-80px)] h-full text-black'>
               {children}
             </div>
             <ToastContainer position="bottom-right" autoClose={3000} />

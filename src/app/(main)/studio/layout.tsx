@@ -60,7 +60,7 @@ export default function RootLayout({
         {/* <StateProvider>
           <AuthContextProvider> */}
             <NavbarStudio/>
-            <div className='mt-[60px] md:mt-[80px] text-black'>
+            <div className='mt-[60px] md:mt-[80px] md:min-h-[calc(100vh-80px)] h-full text-black'>
               {children}
             </div>
             {/* <Footer/> */}

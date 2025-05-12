@@ -1,4 +1,4 @@
-import mongoose, { Schema, Document } from 'mongoose';
+import { Schema, Document, model } from 'mongoose';
 
 interface IUnverifiedUser extends Document {
   email: string;
@@ -25,6 +25,6 @@ const UnverifiedUserSchema = new Schema<IUnverifiedUser>({
   },
 });
 
-const UnverifiedUser = mongoose.models.UnverifiedUser || mongoose.model<IUnverifiedUser>('UnverifiedUser', UnverifiedUserSchema);
+const UnverifiedUser = model<IUnverifiedUser>('UnverifiedUser', UnverifiedUserSchema);
 
 export default UnverifiedUser;
