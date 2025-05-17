@@ -10,7 +10,7 @@ const PremiumCheckoutMain = ({token} : {token : string}) => {
     const [email, setEmail] = useState<string | null>(null);
     const router = useRouter();
     const [total, setTotal] = useState<number>(0);
-    const ADDITIONAL_COST = 0.01;
+    const ADDITIONAL_COST = 1.00;
     const [isProcessing, setIsProcessing] = useState(false);
     const [paypalError, setPaypalError] = useState("");
 
