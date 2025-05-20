@@ -2,12 +2,15 @@
 import React, { useEffect, useState } from 'react';
 
 import Link from 'next/link';
-import { navbarLinks, contents, socials, website } from '@/data/website';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "@/components/ui/popover"
 
 // import Menu from '@mui/icons-material/Menu';
-import Logo from '@/components/Logo';
 import Image from 'next/image';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { IoPersonSharp } from "react-icons/io5";
 // import HamburgerMenu from './HamburgerMenu';
 
@@ -18,6 +21,8 @@ const NavbarStudio = () => {
     const [style, setStyle] = useState(0);
 
     const path = usePathname();
+
+    const router = useRouter()
 
     useEffect(() => {
         switch (path) {
@@ -32,6 +37,14 @@ const NavbarStudio = () => {
                 break;
         }
     }, [path])
+
+    const logout = async () => {
+        await fetch('/api/users/logout', {
+            method: 'POST',
+        }).then(() => 
+            router.push('/')
+        )
+    }
 
     return (
         <nav className='z-50 flex w-full fixed top-0 justify-between md:h-[80px] h-[60px] bg-grey md:px-20 bg-background border-b-[1px] border-primary' id='navbar_container'>
@@ -64,9 +77,20 @@ const NavbarStudio = () => {
                 <Link href={"/studio/upgrade"} rel="canonical" className='md:h-10 px-10 rounded-full flex justify-center items-center outline md:outline-1 outline-primary md:-outline-offset-1 -outline-offset-1 bg-primary md:text-[16px] text-[12px] custom-display2 text-background'>
                     UPGRADE
                 </Link>
-                <button className='flex justify-center items-center h-[40px] w-[40px] bg-primary rounded-full' title='menu'>
-                    <IoPersonSharp size={24} fill='#000000'/>
-                </button>
+                <Popover>
+                    <PopoverTrigger asChild>
+                        <button className='cursor-pointer flex justify-center items-center h-[40px] w-[40px] bg-primary rounded-full' title='menu'>
+                            <IoPersonSharp size={24} fill='#000000'/>
+                        </button>
+                    </PopoverTrigger>
+                    <PopoverContent className="border-none">
+                        <div className={`absolute right-20 md:top-[40px] border-primary border rounded-2xl md:p-4 justify-center items-center`}>
+                            <button onClick={() => logout()} rel="canonical" className='cursor-pointer md:h-10 px-10 rounded-full flex justify-center items-center bg-red-600 md:text-[16px] text-[12px] custom-display2 text-foreground'>
+                                <span>Logout</span>
+                            </button>
+                        </div>
+                    </PopoverContent>
+                </Popover>
                 <div className='flex justify-center items-center md:hidden' title='hamburgerMenu'>
                     {/* <HamburgerMenu/> */}
                 </div>
