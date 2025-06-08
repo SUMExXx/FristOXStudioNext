@@ -3,6 +3,7 @@ import "../../globals.css";
 import { webData } from "@/data/website";
 import { inter, poppins } from "@/data/fonts";
 import NavbarStudio from "@/components/NavbarStudio";
+import Script from "next/script";
 
 export const metadata: Metadata = {
   title: webData.title,
@@ -54,9 +55,17 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+
+  const subdomain = "sumexxx";
+
   return (
     <html lang="en">
       <body className={`${poppins.variable} ${inter.variable} antialiased`}>
+        <Script
+          src="https://app.pocketsflow.com/pocketsflow-popup.js"
+          data-subdomain={subdomain}
+          strategy="afterInteractive"
+        />
         {/* <StateProvider>
           <AuthContextProvider> */}
             <NavbarStudio/>
