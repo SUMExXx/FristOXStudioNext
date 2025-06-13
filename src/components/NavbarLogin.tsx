@@ -1,10 +1,8 @@
 import React from 'react';
 
 import Link from 'next/link';
-import { navbarLinks, contents, socials, website } from '@/data/website';
 
 // import Menu from '@mui/icons-material/Menu';
-import Logo from '@/components/Logo';
 import Image from 'next/image';
 // import HamburgerMenu from './HamburgerMenu';
 
@@ -19,7 +17,7 @@ const NavbarLogin = () => {
         
         <Link rel="canonical" href={process.env.NEXT_PUBLIC_BASE_URL || '/'} className='flex items-center gap-2 md:gap-4 outline-none'>
             <div className='flex items-center md:gap-[10px]'>
-                <Image src={'/icons/fristox-studio.png'} width={121} height={40} draggable={false} alt={"Frist'OX Studio"} className='md:w-[121px] md:h-[40px] w-[235px] h-[30px]'></Image>
+                <Image src={'/icons/fristox-studio.png'} width={121} height={40} draggable={false} alt={"Frist'OX Studio"} className='md:w-[121px] md:h-[40px] w-[235px] h-[30px] brightness-0'></Image>
                 {/* <Logo className='md:w-[235px] md:h-[30px] w-[235px] h-[20px]' fontSize='inherit' height={30} width={235}/> */}
             </div>
         </Link>

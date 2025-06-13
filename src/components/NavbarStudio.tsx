@@ -51,7 +51,7 @@ const NavbarStudio = () => {
             
             <Link rel="canonical" href={process.env.NEXT_PUBLIC_BASE_URL || '/'} className='flex items-center gap-2 md:gap-4 outline-none'>
                 <div className='flex items-center md:gap-[10px]'>
-                    <Image src={'/icons/fristox-studio.png'} width={121} height={40} draggable={false} alt={"Frist'OX Studio"} className='md:w-[121px] md:h-[40px] w-[235px] h-[30px]'></Image>
+                    <Image src={'/icons/fristox-studio.png'} width={121} height={40} draggable={false} alt={"Frist'OX Studio"} className='md:w-[121px] md:h-[40px] w-[235px] h-[30px] brightness-0'></Image>
                     {/* <Logo className='md:w-[235px] md:h-[30px] w-[235px] h-[20px]' fontSize='inherit' height={30} width={235}/> */}
                 </div>
             </Link>
@@ -79,13 +79,13 @@ const NavbarStudio = () => {
                 </Link>
                 <Popover>
                     <PopoverTrigger asChild>
-                        <button className='cursor-pointer flex justify-center items-center h-[40px] w-[40px] bg-primary rounded-full' title='menu'>
-                            <IoPersonSharp size={24} fill='#000000'/>
+                        <button className='cursor-pointer flex justify-center items-center h-[40px] w-[40px] bg-foreground rounded-full' title='menu'>
+                            <IoPersonSharp size={24} className='text-background'/>
                         </button>
                     </PopoverTrigger>
-                    <PopoverContent className="border-none">
-                        <div className={`absolute right-20 md:top-[40px] border-primary border rounded-2xl md:p-4 justify-center items-center`}>
-                            <button onClick={() => logout()} rel="canonical" className='cursor-pointer md:h-10 px-10 rounded-full flex justify-center items-center bg-red-600 md:text-[16px] text-[12px] custom-display2 text-foreground'>
+                    <PopoverContent className="border-none bg-transparent w-[200px]">
+                        <div className={`md:top-[40px] rounded-2xl md:p-4 justify-center items-center bg-transparent`}>
+                            <button onClick={() => logout()} rel="canonical" className='cursor-pointer md:h-10 px-10 rounded-full flex justify-center items-center bg-red-600 md:text-[16px] text-[12px] custom-display2 text-background'>
                                 <span>Logout</span>
                             </button>
                         </div>

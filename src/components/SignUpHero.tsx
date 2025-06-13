@@ -2,7 +2,6 @@
 import { contents } from '@/data/website'
 import Link from 'next/link'
 import React, { useState } from 'react'
-import { useRouter } from 'next/navigation';
 import { toast } from 'react-toastify';
 
 function SignUpHero() {
@@ -10,8 +9,7 @@ function SignUpHero() {
   const [email, setEmail] = useState('')
   const [pass, setPass] = useState('')
   const [spin, setSpin] = useState(false)
-
-  const router = useRouter()
+  const [popup, setPoupup] = useState(false)
 
   const submit = async (e:React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -31,9 +29,8 @@ function SignUpHero() {
           position: "top-center"
         }
       )
-      setTimeout(() => {
-        router.push('/signin');
-      }, 3000);
+      setPoupup(true);
+      document.body.style.overflow = 'hidden';
     }
   }
 
@@ -84,6 +81,15 @@ function SignUpHero() {
         <div className='bg-primary rounded-[40px] flex justify-center items-center md:h-[520px] md:w-full md:px-10'>
             
         </div>
+        {
+          popup &&
+          <div className='absolute top-0 left-0 w-full h-screen flex justify-center items-center backdrop-blur-[4px]'>
+            <div className='md:h-[400px] md:w-[600px] flex flex-col justify-center items-center md:gap-20 bg-foreground rounded-3xl md:p-20'>
+              <h5 className='text-background text-center'>Check your email. A confirmation email has been sent. If you can't find it, please check your spam folder.</h5>
+              <Link href={'/signin'} className='font-black text-background hover:underline'>Go to Login</Link>
+            </div>
+          </div>
+        }
     </div>
   )
 }

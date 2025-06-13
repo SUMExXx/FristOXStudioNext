@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=no">
+    <title>FristOX</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background: #000;
+        }
+
+        #unity-canvas {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+
+        #unity-loading-bar {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        #unity-logo {
+            width: 200px;
+            height: auto;
+            margin-bottom: 30px;
+            max-width: 80vw;
+        }
+
+        #unity-progress-bar-empty {
+            width: 300px;
+            height: 10px;
+            margin-top: 10px;
+            background-color: rgba(255, 255, 255, 0.3);
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        #unity-progress-bar-full {
+            width: 0%;
+            height: 100%;
+            background-color: #EB4176;
+        }
+
+        #unity-loading-text {
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Hide warning since we're optimizing for fullscreen */
+        #unity-mobile-warning {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="unity-canvas"></canvas>
+    <div id="unity-loading-bar">
+        <img id="unity-logo" src="StreamingAssets/logo.png" alt="Game Logo" />
+        <div id="unity-loading-text">Loading...</div>
+        <div id="unity-progress-bar-empty">
+            <div id="unity-progress-bar-full"></div>
+        </div>
+    </div>
+
+    <script>
+        var buildUrl = "Build";
+        var loaderUrl = buildUrl + "/WebBuild.loader.js";
+        var config = {
+            dataUrl: buildUrl + "/WebBuild.data",
+            frameworkUrl: buildUrl + "/WebBuild.framework.js",
+            codeUrl: buildUrl + "/WebBuild.wasm",
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "FristOX Studio",
+            productName: "FristOX3D",
+            productVersion: "0.3.6",
+            devicePixelRatio: Math.min(window.devicePixelRatio || 1, 2)
+        };
+
+        var script = document.createElement("script");
+        script.src = loaderUrl;
+        script.onload = () => {
+            createUnityInstance(document.querySelector("#unity-canvas"), config, (progress) => {
+                document.querySelector("#unity-progress-bar-full").style.width = (progress * 100) + "%";
+            }).then((unityInstance) => {
+                document.querySelector("#unity-loading-bar").style.display = "none";
+            }).catch((message) => {
+                console.error("Unity Load Error:", message);
+            });
+        };
+        document.body.appendChild(script);
+    </script>
+</body>
+
+</html>

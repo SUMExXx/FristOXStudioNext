@@ -19,88 +19,87 @@ import {
 } from "@/components/ui/chart"
 import { useEffect, useState } from "react"
 import { cn } from "@/lib/utils"
-const chartData = [
-  { browser: "chrome", visitors: 275, fill: "var(--color-chrome)" },
-  { browser: "safari", visitors: 200, fill: "var(--color-safari)" },
-  { browser: "firefox", visitors: 187, fill: "var(--color-firefox)" },
-  { browser: "edge", visitors: 173, fill: "var(--color-edge)" },
-  { browser: "other", visitors: 90, fill: "var(--color-other)" },
-]
+
+// const chartData = [
+//   { model: "cap", visitors: 275, fill: "var(--color-foreground)" },
+//   { model: "tshirt", visitors: 200, fill: "var(--color-foreground)" },
+//   { model: "tshirtAnimated", visitors: 187, fill: "var(--color-foreground)" },
+//   { model: "oversizedTshirt", visitors: 173, fill: "var(--color-foreground)" },
+//   { model: "beanie", visitors: 90, fill: "var(--color-foreground)" },
+//   { model: "pants", visitors: 90, fill: "var(--color-foreground)" }
+// ]
 
 const chartConfig = {
   visitors: {
     label: "Visitors",
   },
-  chrome: {
-    label: "Chrome",
+  cap: {
+    label: "Cap",
     color: "hsl(var(--chart-1))",
   },
-  safari: {
-    label: "Safari",
+  tshirt: {
+    label: "T-Shirt",
     color: "hsl(var(--chart-2))",
   },
-  firefox: {
-    label: "Firefox",
+  tshirtAnimated: {
+    label: "T-Shirt Animated",
     color: "hsl(var(--chart-3))",
   },
-  edge: {
-    label: "Edge",
+  oversizedTshirt: {
+    label: "Oversized T-Shirt",
     color: "hsl(var(--chart-4))",
   },
-  other: {
-    label: "Other",
+  beanie: {
+    label: "Beanie",
     color: "hsl(var(--chart-5))",
+  },
+  pants: {
+    label: "Pants",
+    color: "hsl(var(--chart-6))",
   },
 } satisfies ChartConfig
 
-interface PageData {
-    date: string, 
-    visits: number
-}
-
-interface PageFullData {
-    startMonth: number,
-    endMonth: number,
-    chartData: PageData[]
+interface ModelData {
+  model: string;
+  visitors: number;
+  fill: string;
 }
 
 export function MostVisitedPages() {
 
-    const [data, setData] = useState<PageFullData>()
+  const [data, setData] = useState<ModelData[]>()
 
-    const [initLoad, setInit] = useState(true)
-  
-      const getData = async () => {
-          await fetch("/api/admin/stats/most-visited-pages") // Replace with your API URL
-          .then((res) => res.json())
-          .then((data) => setData(data))
-          .catch((error) => console.error("Error fetching data:", error))
-      }
-  
-      useEffect(() => {
-          getData()
-          setInit(false)
-      }, [])
-    
-      return (
-        initLoad? 
-        <div className="w-full h-full justify-center items-center flex">
-                  <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className={cn("animate-spin")}
-                  >
-                      <path d="M21 12a9 9 0 1 1-6.219-8.56" />
-                  </svg>
-              </div>
-                  : 
+  const [initLoad, setInit] = useState(true)
+
+  const getData = async () => {
+      const res = await fetch("/api/admin/stats/most-visited-models") // Replace with your API URL
+      const modelData = await res.json();
+      setData(modelData)
+  }
+
+  useEffect(() => {
+      getData()
+      setInit(false)
+  }, [])
+
+  return (
+    initLoad? 
+    <div className="w-full h-full justify-center items-center flex">
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        className={cn("animate-spin")}
+        >
+            <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+        </svg>
+    </div>: 
     <Card>
       <CardHeader>
         <CardTitle>Bar Chart - Mixed</CardTitle>
@@ -110,14 +109,14 @@ export function MostVisitedPages() {
         <ChartContainer config={chartConfig}>
           <BarChart
             accessibilityLayer
-            data={chartData}
+            data={data}
             layout="vertical"
             margin={{
               left: 0,
             }}
           >
             <YAxis
-              dataKey="browser"
+              dataKey="model"
               type="category"
               tickLine={false}
               tickMargin={10}
