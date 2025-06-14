@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import "../globals.css";
+import "@/app/globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import { webData } from "@/data/website";
-import { inter, poppins } from "@/data/fonts";
+import { webData } from "@/lib/data/website";
+import { inter, poppins } from "@/lib/data/fonts";
 
 export const metadata: Metadata = {
   title: webData.title,

@@ -1,6 +1,6 @@
 "use client"
 
-import { contents } from '@/data/website'
+import { contents } from '@/lib/data/website'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 

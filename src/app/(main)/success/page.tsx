@@ -2,7 +2,7 @@
 
 import { useEffect } from "react";
 import { useRouter } from "next/navigation";
-import { contents } from "@/data/website";
+import { contents } from "@/lib/data/website";
 
 export default function Success() {
 

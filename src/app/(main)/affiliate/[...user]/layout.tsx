@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import "../../../globals.css";
-import { webData } from "@/data/website";
-import { inter, poppins } from "@/data/fonts";
+import "@/app/globals.css";
+import { webData } from "@/lib/data/website";
+import { inter, poppins } from "@/lib/data/fonts";
 import { SidebarProvider } from "@/components/ui/sidebar"
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';

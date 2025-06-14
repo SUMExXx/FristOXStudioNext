@@ -1,6 +1,7 @@
 import ModelStatsPage from "@/components/ModelStatsPage";
 import StatsPage from "@/components/StatsPage";
 import UnityWebGL from "@/components/UnityWebGL";
+import { models3D } from "@/lib/data/models";
 import planVerify from "@/lib/utils/planVerify";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
@@ -24,7 +25,7 @@ export default async function Home() {
   return (
     <div className="w-full h-full flex flex-col items-center justify-start">
       <main className="w-full flex flex-col items-center justify-start">
-        <UnityWebGL model="oversized-tshirt" />
+        <UnityWebGL model={models3D.oversizedTshirt} />
         <StatsPage/>
         <ModelStatsPage model="oversizedTshirt"/>
       </main>

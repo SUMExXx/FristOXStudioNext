@@ -1,4 +1,4 @@
-import { contents, models } from '@/data/website'
+import { contents, models } from '@/lib/data/website'
 import Image from 'next/image'
 import React from 'react'
 

@@ -1,6 +1,6 @@
 "use client"
 import StatsPage from "@/components/StatsPage";
-import { Types3D } from "@/data/website";
+import { Types3D } from "@/lib/data/website";
 import Link from "next/link";
 import { useState } from "react";
 import { FaArrowCircleRight, FaTshirt } from "react-icons/fa";

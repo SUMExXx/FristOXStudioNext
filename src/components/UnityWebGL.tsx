@@ -2,14 +2,14 @@
 import { Unity, useUnityContext } from "react-unity-webgl";
 
 const UnityWebGL = (
-    { model }: { model: string }
+    { model }: { model: ModelData }
 ) => {
 
     const { unityProvider, isLoaded, loadingProgression } = useUnityContext({
-        loaderUrl: `/webgl/${model}/Build/WebBuild.loader.js`,
-        dataUrl: `/webgl/${model}/Build/WebBuild.data`,
-        frameworkUrl: `/webgl/${model}/Build/WebBuild.framework.js`,
-        codeUrl: `/webgl/${model}/Build/WebBuild.wasm`,
+        loaderUrl: model.loaderUrl,
+        dataUrl: model.dataUrl,
+        frameworkUrl: model.frameworkUrl,
+        codeUrl: model.codeUrl,
     });
 
     return (

@@ -1,5 +1,5 @@
 "use client";
-import { contents } from '@/data/website'
+import { contents } from '@/lib/data/website'
 import Link from 'next/link'
 import React, { useState } from 'react'
 import { useRouter } from 'next/navigation';

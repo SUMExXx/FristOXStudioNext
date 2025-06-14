@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
-import "../../globals.css";
-import { webData } from "@/data/website";
-import { inter, poppins } from "@/data/fonts";
+import "@/app/globals.css";
+import { webData } from "@/lib/data/website";
+import { inter, poppins } from "@/lib/data/fonts";
 import NavbarLogin from "@/components/NavbarLogin";
 import 'react-toastify/dist/ReactToastify.css';
 

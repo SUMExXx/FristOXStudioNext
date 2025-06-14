@@ -1,4 +1,4 @@
-import { contents } from '@/data/website'
+import { contents } from '@/lib/data/website'
 import React from 'react'
 
 function Features() {

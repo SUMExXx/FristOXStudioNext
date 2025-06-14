@@ -1,5 +1,7 @@
 import ModelStatsPage from "@/components/ModelStatsPage";
 import StatsPage from "@/components/StatsPage";
+import UnityWebGL from "@/components/UnityWebGL";
+import { models3D } from "@/lib/data/models";
 import planVerify from "@/lib/utils/planVerify";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
@@ -23,7 +25,7 @@ export default async function Home() {
   return (
     <div className="w-full h-full flex flex-col items-center justify-start">
       <main className="w-full flex flex-col items-center justify-start">
-        <UnityWebGL/>
+        <UnityWebGL model={models3D.beanie}/>
         <StatsPage/>
         <ModelStatsPage model="beanie"/>
       </main>
@@ -31,17 +33,17 @@ export default async function Home() {
   );
 }
 
-const UnityWebGL = () => {
-  return (
-    <div className="w-full h-[calc(100vh-80px)]">
-      <iframe
-        src="/webgl/beanie/index.html"
-        width="100%"
-        height="100%"
-        allowFullScreen
-        className="border-0"
-      />
-    </div>
-  );
-};
+// const UnityWebGL = () => {
+//   return (
+//     <div className="w-full h-[calc(100vh-80px)]">
+//       <iframe
+//         src="/webgl/beanie/index.html"
+//         width="100%"
+//         height="100%"
+//         allowFullScreen
+//         className="border-0"
+//       />
+//     </div>
+//   );
+// };
 

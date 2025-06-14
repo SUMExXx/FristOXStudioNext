@@ -1,4 +1,4 @@
-import { contents } from '@/data/website'
+import { contents } from '@/lib/data/website'
 import WallpaperIcon from '@mui/icons-material/Wallpaper';
 import AnimationIcon from '@mui/icons-material/Animation';
 import ViewInArIcon from '@mui/icons-material/ViewInAr';
