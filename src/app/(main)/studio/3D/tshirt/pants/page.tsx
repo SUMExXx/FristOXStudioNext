@@ -1,5 +1,6 @@
 import ModelStatsPage from "@/components/ModelStatsPage";
 import StatsPage from "@/components/StatsPage";
+import UnityWebGL from "@/components/UnityWebGL";
 import planVerify from "@/lib/utils/planVerify";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
@@ -23,25 +24,11 @@ export default async function Home() {
   return (
     <div className="w-full h-full flex flex-col items-center justify-start">
       <main className="w-full flex flex-col items-center justify-start">
-        <UnityWebGL/>
+        <UnityWebGL model="pants" />
         <StatsPage/>
         <ModelStatsPage model="pants"/>
       </main>
     </div>
   );
 }
-
-const UnityWebGL = () => {
-  return (
-    <div className="w-full h-[calc(100vh-80px)]">
-      <iframe
-        src="/webgl/pants/index.html"
-        width="100%"
-        height="100%"
-        allowFullScreen
-        className="border-0"
-      />
-    </div>
-  );
-};
 
