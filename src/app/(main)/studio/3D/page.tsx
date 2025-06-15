@@ -1,23 +1,19 @@
-"use client"
 import StatsPage from "@/components/StatsPage";
-import { Types3D } from "@/lib/data/website";
 import Link from "next/link";
-import { useState } from "react";
-import { FaArrowCircleRight, FaTshirt } from "react-icons/fa";
-import { PiPantsFill } from "react-icons/pi";
+import { FaArrowCircleRight } from "react-icons/fa";
 
 export default function ThreeD() {
 
-  const [type, setType] = useState(Types3D.shirt);
+  // const [type, setType] = useState(Types3D.shirt);
 
-  const changeType = (type: Types3D) => {
-    setType((prev) => {
-      if (prev === type) {
-        return Types3D.shirt;
-      }
-      return type;
-    })
-  };
+  // const changeType = (type: Types3D) => {
+  //   setType((prev) => {
+  //     if (prev === type) {
+  //       return Types3D.shirt;
+  //     }
+  //     return type;
+  //   })
+  // };
     
   
   return (

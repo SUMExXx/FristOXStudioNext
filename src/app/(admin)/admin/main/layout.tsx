@@ -1,4 +1,4 @@
-import type { Metadata, Viewport } from "next";
+import type { Metadata } from "next";
 import "@/app/globals.css";
 import { webData } from "@/lib/data/website";
 import { inter, poppins } from "@/lib/data/fonts";
@@ -45,11 +45,6 @@ export const metadata: Metadata = {
   //   images: [website.url+'/files/opengraph-image.png'],
   //   creator: "@SUMExXx666"
   // },
-};
-
-export const viewport: Viewport = {
-  width: 'device-width',
-  initialScale: 1,
 };
 
 export default function RootLayout({

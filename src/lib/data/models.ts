@@ -1,4 +1,4 @@
-export const models3D: Model = {
+export const models3D: Models3D = {
     beanie: {
         loaderUrl: "https://dl.dropboxusercontent.com/scl/fi/8jhgqduqkuzaj3tg1d0j8/WebBuild.loader.js?rlkey=ko1bph5ezu6lx3v1qckf9s9w2&st=05syqy5c&dl=0",
         dataUrl: "https://dl.dropboxusercontent.com/scl/fi/ypdgjaoympuzark13rroe/WebBuild.data?rlkey=tnlmuw6srxwckpu1x7hx18nl2&st=udrb9z0l&dl=0",
@@ -34,5 +34,14 @@ export const models3D: Model = {
         dataUrl: "https://dl.dropboxusercontent.com/scl/fi/bmnq6wm0lk8eba8tkfan9/WebBuild.data?rlkey=q345l7szqinc2iklft5yqyw9f&st=6im823qm&dl=0",
         frameworkUrl: "https://dl.dropboxusercontent.com/scl/fi/4f8m6irdx3tj5kzg497jx/WebBuild.framework.js?rlkey=5owvv9xcjwev39dnzkf0id7vs&st=in3alyli&dl=0",
         codeUrl: "https://dl.dropboxusercontent.com/scl/fi/nza0p29i4dzvcgtka13lp/WebBuild.wasm?rlkey=c58h1b7bsrqxzx52hvpe8xaik&st=ab16ymw3&dl=0"
+    }
+}
+
+export const models2D: Models2D = {
+    all: {
+        loaderUrl: "https://dl.dropboxusercontent.com/scl/fi/7i0yqlisi5vro04l67knv/Builds.loader.js?rlkey=n7uw6yrtmbhzqpixm7eodpu0c&st=tul3it73&dl=0",
+        dataUrl: "https://dl.dropboxusercontent.com/scl/fi/ws82ociyaaf6bufy5nizb/Builds.data?rlkey=sccr91lo41x97iugrw1bbucur&st=ix21do4q&dl=0",
+        frameworkUrl: "https://dl.dropboxusercontent.com/scl/fi/68kqpeqlwr2xq0dw4z1ao/Builds.framework.js?rlkey=7eqsfyimiemi6gogq1wv8m49q&st=9ez3emza&dl=0",
+        codeUrl: "https://dl.dropboxusercontent.com/scl/fi/kotfjux2lun8fm9b4jcm8/Builds.wasm?rlkey=f0gxp6mzqrpq1jd7kqcnhj113&st=ykie0pug&dl=0",
     }
 }

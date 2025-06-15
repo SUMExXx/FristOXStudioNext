@@ -1,4 +1,4 @@
-import { contents, models } from '@/lib/data/website'
+import { contents } from '@/lib/data/website'
 import Image from 'next/image'
 import React from 'react'
 
@@ -10,9 +10,9 @@ function ModelOptions() {
             {contents.text3}
           </h2>
           <div className='flex flex-wrap md:gap-10 justify-center items-start w-full'>
-            {models.map((model, index) => (
+            {Array.from([0, 0, 0, 0, 0, 0, 0, 0]).map((model, index) => (
               <div key={index} className='flex flex-col items-center justify-center gap-4 rounded-[40px] bg-primary p-4 md:w-[360px] md:h-[360px]'>
-                <Image width={300} height={300} src={'/videos/GIF-12.gif'} alt={model.name} className='object-cover'/>
+                <Image width={300} height={300} src={'/videos/GIF-12.gif'} alt={"name"} className='object-cover'/>
                 {/* <h3 className='text-2xl font-bold text-primary font-lily'>{model.name}</h3>
                 <p className='text-lg font-medium text-primary'>{model.name}</p> */}
               </div>

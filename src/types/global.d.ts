@@ -8,13 +8,17 @@ enum Types3D {
   pants = 2,
 }
 
-type Model = {
+type Models3D = {
   beanie: ModelData;
   cap: ModelData;
   oversizedTshirt: ModelData;
   pants: ModelData;
   tshirt: ModelData;
   tshirtAnimated: ModelData;
+}
+
+type Models2D = {
+  all: ModelData;
 }
 
 type ModelData = {

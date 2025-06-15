@@ -256,31 +256,6 @@ export const contents: WebContent= {
     text26: "Redirecting to Sign In...",
 }
 
-interface Model{
-    name: string,
-}
-
-export const models: Model[] = [
-    {
-        name: 'Suman Debnath'
-    },
-    {
-        name: 'Suman Debnath'
-    },
-    {
-        name: 'Suman Debnath'
-    },
-    {
-        name: 'Suman Debnath'
-    },
-    {
-        name: 'Suman Debnath'
-    },
-    {
-        name: 'Suman Debnath'
-    }
-]
-
 interface Socials{
     linkedin: string,
     instagram: string,

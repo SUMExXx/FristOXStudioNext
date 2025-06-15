@@ -25,16 +25,10 @@ const NavbarStudio = () => {
     const router = useRouter()
 
     useEffect(() => {
-        switch (path) {
-            case '/studio/3D':
-                setStyle(0)
-                break;
-            case '/studio/2D':
-                setStyle(1)
-                break;
-            default:
-                setStyle(0)
-                break;
+        if(path.startsWith('/studio/3D')){
+            setStyle(0)
+        } else {
+            setStyle(1)
         }
     }, [path])
 
