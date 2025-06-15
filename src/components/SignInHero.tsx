@@ -76,7 +76,7 @@ function SignInHero() {
                 placeholder="Enter password"
               />
             </div>
-            <Link href="/forgot" className='w-full text-right text-tertiary custom-text1'>{contents.text17}</Link>
+            <Link href="/forgot-password" className='w-full text-right text-tertiary custom-text1'>{contents.text17}</Link>
             <button type='submit' className='w-full p-[10px] bg-primary text-background rounded-[10px] custom-display2 flex justify-center items-center'>
               {
                 spin? 
