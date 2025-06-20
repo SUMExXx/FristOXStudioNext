@@ -53,9 +53,13 @@ const chartConfig = {
     label: "Beanie",
     color: "hsl(var(--chart-5))",
   },
-  pants: {
-    label: "Pants",
+  pantsAnimated: {
+    label: "Pant Animated",
     color: "hsl(var(--chart-6))",
+  },
+  hangingHoodie: {
+    label: "Hanging Hoodie",
+    color: "hsl(var(--chart-7))",
   },
 } satisfies ChartConfig
 

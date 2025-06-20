@@ -11,8 +11,9 @@ enum Types3D {
 type Models3D = {
   beanie: ModelData;
   cap: ModelData;
+  hangingHoodie: ModelData;
   oversizedTshirt: ModelData;
-  pants: ModelData;
+  pantAnimated: ModelData;
   tshirt: ModelData;
   tshirtAnimated: ModelData;
 }

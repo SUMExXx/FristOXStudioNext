@@ -1,4 +1,4 @@
-import PremiumCheckoutMainPocketsFlow from '@/components/PremiumCheckoutMainPocketsFlow';
+import PremiumCheckoutMainPocketsFlow from '@/components/PremiumCheckoutMainDodo';
 import { cookies } from 'next/headers';
 import { redirect } from 'next/navigation';
 

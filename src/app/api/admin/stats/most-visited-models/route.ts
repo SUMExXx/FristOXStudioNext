@@ -8,7 +8,8 @@ const MODELS = [
   'tshirtAnimated',
   'oversizedTshirt',
   'beanie',
-  'pants'
+  'pantAnimated',
+  'hangingHoodie'
 ];
 
 export async function GET() {

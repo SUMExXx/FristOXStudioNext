@@ -49,6 +49,7 @@ export default function ThreeD() {
                 <FaArrowCircleRight size={48} className="z-20 group-hover:scale-105 transition-all duration-300" />
               </Link>
               <Link href={"/studio/3D/tshirt/oversized-tshirt"} className="w-[300px] h-[300px] relative flex justify-between items-end rounded-[20px] p-[20px] cursor-pointer hover:scale-105 transition-all duration-300 group" style={{ backgroundImage: "url('/images/oversized-tshirt.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+                <div className="absolute top-5 right-5 bg-purple-600 md:px-4 md:py-2 flex justify-center items-center rounded-full">PRO</div>
                 <div className="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-100 rounded-[20px]"></div>
                 <span className="text-[36px] font-semibold z-20 group-hover:scale-105 transition-all duration-300 leading-[40px]">Oversized T-Shirt</span>
                 <FaArrowCircleRight size={48} className="z-20 group-hover:scale-105 transition-all duration-300" />
@@ -59,10 +60,16 @@ export default function ThreeD() {
                 <span className="text-[36px] font-semibold z-20 group-hover:scale-105 transition-all duration-300 leading-[40px]">Beanie</span>
                 <FaArrowCircleRight size={48} className="z-20 group-hover:scale-105 transition-all duration-300" />
               </Link>
-              <Link href={"/studio/3D/tshirt/pants"} className="w-[300px] h-[300px] relative flex justify-between items-end rounded-[20px] p-[20px] cursor-pointer hover:scale-105 transition-all duration-300 group" style={{ backgroundImage: "url('/images/pants.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+              <Link href={"/studio/3D/tshirt/pant-animated"} className="w-[300px] h-[300px] relative flex justify-between items-end rounded-[20px] p-[20px] cursor-pointer hover:scale-105 transition-all duration-300 group" style={{ backgroundImage: "url('/images/pant-animated.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
                 <div className="absolute top-5 right-5 bg-purple-600 md:px-4 md:py-2 flex justify-center items-center rounded-full">PRO</div>
                 <div className="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-100 rounded-[20px]"></div>
-                <span className="text-[36px] font-semibold z-20 group-hover:scale-105 transition-all duration-300 leading-[40px]">Pants</span>
+                <span className="text-[36px] font-semibold z-20 group-hover:scale-105 transition-all duration-300 leading-[40px]">Pant Animated</span>
+                <FaArrowCircleRight size={48} className="z-20 group-hover:scale-105 transition-all duration-300" />
+              </Link>
+              <Link href={"/studio/3D/tshirt/hanging-hoodie"} className="w-[300px] h-[300px] relative flex justify-between items-end rounded-[20px] p-[20px] cursor-pointer hover:scale-105 transition-all duration-300 group" style={{ backgroundImage: "url('/images/hanging-hoodie.png')", backgroundSize: "cover", backgroundPosition: "center" }}>
+                <div className="absolute top-5 right-5 bg-purple-600 md:px-4 md:py-2 flex justify-center items-center rounded-full">PRO</div>
+                <div className="absolute inset-0 bg-gradient-to-t from-primary to-transparent opacity-100 rounded-[20px]"></div>
+                <span className="text-[36px] font-semibold z-20 group-hover:scale-105 transition-all duration-300 leading-[40px]">Hanging Hoodie</span>
                 <FaArrowCircleRight size={48} className="z-20 group-hover:scale-105 transition-all duration-300" />
               </Link>
             </div>
