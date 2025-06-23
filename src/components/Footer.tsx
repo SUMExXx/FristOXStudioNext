@@ -3,14 +3,6 @@ import Image from 'next/image'
 import React from 'react'
 import { contents } from '@/lib/data/website'
 
-import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import CallIcon from '@mui/icons-material/Call';
-import MailIcon from '@mui/icons-material/Mail';
-
 const Footer = () => {
   return (
     <div className='w-full flex justify-center items-start md:px-32 md:pt-10 md:pb-20 relative'>
