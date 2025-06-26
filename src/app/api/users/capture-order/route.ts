@@ -30,6 +30,9 @@ export async function POST(request: Request) {
       //   await handlePaymentSucceeded(payload);
       //   return NextResponse.json({ error: 'Email not found in token' }, { status: 200 });
     }
+
+    return NextResponse.json({ error: 'Unhandled event type' }, { status: 501 });
+    
   } catch (error) {
     console.error("Error processing webhook:", error);
     return NextResponse.json({ error: 'Email not found in token' }, { status: 400 });
