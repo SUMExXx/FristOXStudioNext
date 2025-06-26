@@ -21,13 +21,11 @@ export async function POST(request: Request) {
   await webhook.verify(rawBody, webhookHeaders);
   const payload = JSON.parse(rawBody);
 
-  console.log(payload)
-
   try {
     switch(payload.type) {
       case 'payment.succeeded':
         await handlePaymentSucceeded(payload);
-        return NextResponse.json({ error: 'Email not found in token' }, { status: 200 });
+        return NextResponse.json({ message: 'Success' }, { status: 200 });
       // case 'subscription.expired':
       //   await handlePaymentSucceeded(payload);
       //   return NextResponse.json({ error: 'Email not found in token' }, { status: 200 });
