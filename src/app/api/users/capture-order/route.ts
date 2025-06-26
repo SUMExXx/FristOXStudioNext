@@ -21,6 +21,8 @@ export async function POST(request: Request) {
   await webhook.verify(rawBody, webhookHeaders);
   const payload = JSON.parse(rawBody);
 
+  console.log(payload)
+
   try {
     switch(payload.type) {
       case 'payment.succeeded':
@@ -32,7 +34,7 @@ export async function POST(request: Request) {
     }
 
     return NextResponse.json({ error: 'Unhandled event type' }, { status: 501 });
-    
+
   } catch (error) {
     console.error("Error processing webhook:", error);
     return NextResponse.json({ error: 'Email not found in token' }, { status: 400 });
