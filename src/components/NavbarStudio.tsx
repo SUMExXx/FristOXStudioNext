@@ -63,10 +63,13 @@ const NavbarStudio = async (
                     2D Design
                 </Link>
                 {
-                    user.plan == 'free' && upgrade &&
-                    <Link href={"/studio/upgrade"} rel="canonical" className='md:h-10 px-10 rounded-full flex justify-center items-center outline md:outline-1 outline-primary md:-outline-offset-1 -outline-offset-1 bg-primary md:text-[16px] text-[12px] custom-display2 text-background'>
+                    user.plan == 'free' && upgrade?
+                    <Link href={"/studio/upgrade"} rel="canonical" className='md:h-10 px-10 rounded-full flex justify-center items-center outline md:outline-1 outline-primary md:-outline-offset-1 -outline-offset-1 bg-main-foreground md:text-[16px] text-[12px] custom-display2 text-main-background'>
                         UPGRADE
-                    </Link>
+                    </Link>:
+                    <button type='button' className='md:h-10 px-10 rounded-full flex justify-center items-center outline md:outline-1 outline-primary md:-outline-offset-1 -outline-offset-1 bg-yellow-400 font-bold md:text-[16px] text-[12px] custom-display2 text-main-foreground cursor-pointer'>
+                        PREMIUM
+                    </button>
                 }
                 <Popover>
                     <PopoverTrigger asChild>
