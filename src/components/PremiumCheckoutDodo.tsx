@@ -1,16 +1,14 @@
 "use client"
 import React from 'react'
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { CircularProgress } from '@mui/material';
 // import { securePaymentFetch } from '@/lib/utils/securePaymentFetch';
 
 const PremiumCheckoutDodo = ({token} : {token : string}) => {
 
     const [email, setEmail] = useState<string | null>(null);
-    const [total, setTotal] = useState<number>(0);
-    const ADDITIONAL_COST = 1.00;
     const [isProcessing, setIsProcessing] = useState(false);
-    const [dodoError, setDodoError] = useState("");
 
     const router = useRouter();
 
@@ -31,11 +29,7 @@ const PremiumCheckoutDodo = ({token} : {token : string}) => {
         }
     }
 
-    useEffect(() => {
-        // setTotal(0 + SHIPPING_COST);
-        setTotal(0 + ADDITIONAL_COST);
-        fetchEmail(token);
-    }, []);
+    fetchEmail(token);
 
     const createOrder = async () => {
         if (!email) {
@@ -44,7 +38,6 @@ const PremiumCheckoutDodo = ({token} : {token : string}) => {
         }
 
         setIsProcessing(true);
-        setDodoError("");
 
         try {
             const res = await fetch('/api/users/dodo/create', {
@@ -72,7 +65,6 @@ const PremiumCheckoutDodo = ({token} : {token : string}) => {
 
         } catch (error) {
             console.error("Error creating order:", error);
-            setDodoError("An error occurred while processing your payment. Please try again.");
         } finally {
             setIsProcessing(false);
         }
@@ -81,10 +73,14 @@ const PremiumCheckoutDodo = ({token} : {token : string}) => {
     return (
         <div className='w-full h-[calc(100vh-80px)] flex flex-col items-center justify-center'>
             <div className="h-full flex items-center justify-center bg-gray-50 px-4">
-                <div className="w-full max-w-md p-6 bg-white rounded shadow">
+                <div className="flex flex-col justify-center items-center md:gap-4 rounded-2xl md:p-10 min-w-sm hover:p-12 transition-all duration-300 ease-in-out bg-white shadow-lg">
                     <h2 className="text-xl font-semibold mb-4">Checkout</h2>
-                    <button onClick={createOrder} className='cursor-pointer'>
-                        Buy Product
+                    <button type='button' onClick={createOrder} className='cursor-pointer flex w-full md:gap-5 md:px-4 md:h-10 md:py-2 rounded-full justify-center items-center bg-main-foreground hover:scale-110 transition-all duration-300 ease-in-out'>
+                        {
+                            isProcessing?
+                            <CircularProgress className='text-main-background' size={20} color='inherit' />:
+                            <span className='text-main-background'>Go for Payment</span>
+                        }
                     </button>
                 </div>
             </div>
