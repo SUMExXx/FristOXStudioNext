@@ -1,12 +1,14 @@
 import { NextRequest, NextResponse } from 'next/server';
-import mongoose from 'mongoose';
 import User from '@/lib/models/user';
 import getEmail from '@/lib/utils/getEmail';
+import connectDB from '@/lib/mongodb';
 
 export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
     const token = body.token;
+
+    await connectDB();
 
     if (!token) {
       return NextResponse.json({ value: false, error: 'Token missing' }, { status: 400 });
@@ -15,11 +17,6 @@ export async function POST(req: NextRequest) {
     const email = await getEmail(token);
     if (!email) {
       return NextResponse.json({ value: false, error: 'Invalid token' }, { status: 401 });
-    }
-
-    // Ensure DB connection
-    if (mongoose.connection.readyState === 0) {
-      await mongoose.connect(process.env.MONGODB_URI as string);
     }
 
     const user = await User.findOne({ email });
