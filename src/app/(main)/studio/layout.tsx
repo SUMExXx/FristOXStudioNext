@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "@/app/globals.css";
 import { webData } from "@/lib/data/website";
 import { inter, poppins } from "@/lib/data/fonts";
-import NavbarStudio from "@/components/NavbarStudio";
 import Script from "next/script";
 
 export const metadata: Metadata = {
@@ -63,10 +62,7 @@ export default function RootLayout({
         />
         {/* <StateProvider>
           <AuthContextProvider> */}
-            <NavbarStudio/>
-            <div className='mt-[60px] md:mt-[80px] md:min-h-[calc(100vh-80px)] h-full text-black'>
-              {children}
-            </div>
+            {children}
             {/* <Footer/> */}
             {/* <Spinner/> */}
           {/* </AuthContextProvider>

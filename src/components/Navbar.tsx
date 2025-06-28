@@ -5,7 +5,7 @@ import { cookies } from 'next/headers'
 
 // import Menu from '@mui/icons-material/Menu';
 import Image from 'next/image';
-import LoginCheck from './LoginCheck';
+import { contents } from '@/lib/data/website';
 // import HamburgerMenu from './HamburgerMenu';
 
 // import Menu from './Menu';
@@ -14,6 +14,27 @@ const Navbar = async () => {
 
     const cookie = await cookies()
     const token = cookie.get('token')?.value || null
+
+    let isLoggedIn = false
+
+    const verifyToken = async () => {
+        if (!token) return
+        try {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users/verify-jwt`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ token }),
+            })
+            if (res.ok) {
+                const data = await res.json()
+                isLoggedIn = data.value
+            }
+        } catch (err) {
+            console.error('JWT verification failed', err)
+        }
+    }
+
+    await verifyToken()
 
     return (
         <nav className='z-50 flex w-full fixed top-0 justify-between md:h-[80px] h-[60px] bg-grey md:px-20 p-[10px] bg-background border-b-[1px] border-primary' id='navbar_container'>
@@ -60,7 +81,34 @@ const Navbar = async () => {
                     >
                         <span className='md:text-[16px] text-[12px] custom-display2 text-background'>Talk to founder</span>
                     </Link>
-                    <LoginCheck token={token} />
+                    <div className='items-center md:gap-[20px] gap-[10px] flex'>
+                        {isLoggedIn ? (
+                            <Link
+                                rel='canonical'
+                                className='md:h-10 px-10 rounded-full flex justify-center items-center bg-primary custom-display2'
+                                href='/studio/'
+                            >
+                                <span className='md:text-[16px] text-[12px] custom-display2 text-background'>Go to Studio</span>
+                            </Link>
+                        ) : (
+                            <>
+                                <Link
+                                    rel='canonical'
+                                    className='md:h-10 px-10 rounded-full flex justify-center items-center font-michroma outline md:outline-1 outline-primary md:-outline-offset-1 -outline-offset-1'
+                                    href='/signin'
+                                >
+                                    <span className='md:text-[16px] text-[12px] custom-display2 text-foreground'>{contents.login}</span>
+                                </Link>
+                                <Link
+                                    rel='canonical'
+                                    className='md:h-10 px-10 rounded-full flex justify-center items-center bg-primary custom-display2'
+                                    href='/signup'
+                                >
+                                    <span className='md:text-[16px] text-[12px] custom-display2 text-background'>{contents.signup}</span>
+                                </Link>
+                            </>
+                        )}
+                    </div>
                     
                 </ul>
                 <div className='flex justify-center items-center md:hidden' title='hamburgerMenu'>

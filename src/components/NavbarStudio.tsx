@@ -1,5 +1,4 @@
-"use client";
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import Link from 'next/link';
 import {
@@ -10,35 +9,30 @@ import {
 
 // import Menu from '@mui/icons-material/Menu';
 import Image from 'next/image';
-import { usePathname, useRouter } from 'next/navigation';
 import { IoPersonSharp } from "react-icons/io5";
+import { cookies} from 'next/headers';
+import LogOutButton from '@/components/LogOutButton';
 // import HamburgerMenu from './HamburgerMenu';
 
 // import Menu from './Menu';
 
-const NavbarStudio = () => {
+const NavbarStudio = async (
+    {style, upgrade=true}: {style: number | null, upgrade?: boolean}
+) => {
 
-    const [style, setStyle] = useState(0);
+    const cookiesData = await cookies();
+    
+    const token = cookiesData.get('token')?.value;
 
-    const path = usePathname();
+    const userResponse = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users/get-user`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ token }),
+    });
 
-    const router = useRouter()
-
-    useEffect(() => {
-        if(path.startsWith('/studio/3D')){
-            setStyle(0)
-        } else {
-            setStyle(1)
-        }
-    }, [path])
-
-    const logout = async () => {
-        await fetch('/api/users/logout', {
-            method: 'POST',
-        }).then(() => 
-            router.push('/')
-        )
-    }
+    const user = await userResponse.json();
 
     return (
         <nav className='z-50 flex w-full fixed top-0 justify-between md:h-[80px] h-[60px] bg-grey md:px-20 bg-background border-b-[1px] border-primary' id='navbar_container'>
@@ -68,20 +62,23 @@ const NavbarStudio = () => {
                 <Link href={"/studio/2D"} className={`md:px-[20px] h-full border-b-4 ${style == 1? "border-b-primary": "border-b-background"} flex justify-center items-center`}>
                     2D Design
                 </Link>
-                <Link href={"/studio/upgrade"} rel="canonical" className='md:h-10 px-10 rounded-full flex justify-center items-center outline md:outline-1 outline-primary md:-outline-offset-1 -outline-offset-1 bg-primary md:text-[16px] text-[12px] custom-display2 text-background'>
-                    UPGRADE
-                </Link>
+                {
+                    user.plan == 'free' && upgrade &&
+                    <Link href={"/studio/upgrade"} rel="canonical" className='md:h-10 px-10 rounded-full flex justify-center items-center outline md:outline-1 outline-primary md:-outline-offset-1 -outline-offset-1 bg-primary md:text-[16px] text-[12px] custom-display2 text-background'>
+                        UPGRADE
+                    </Link>
+                }
                 <Popover>
                     <PopoverTrigger asChild>
                         <button className='cursor-pointer flex justify-center items-center h-[40px] w-[40px] bg-foreground rounded-full' title='menu'>
                             <IoPersonSharp size={24} className='text-background'/>
                         </button>
                     </PopoverTrigger>
-                    <PopoverContent className="border-none bg-transparent w-[200px]">
-                        <div className={`md:top-[40px] rounded-2xl md:p-4 justify-center items-center bg-transparent`}>
-                            <button onClick={() => logout()} rel="canonical" className='cursor-pointer md:h-10 px-10 rounded-full flex justify-center items-center bg-red-600 md:text-[16px] text-[12px] custom-display2 text-background'>
-                                <span>Logout</span>
-                            </button>
+                    <PopoverContent className="border-none w-[300px] flex flex-col bg-transparent shadow-none">
+                        <div className='md:h-[20px] w-full'/>
+                        <div className={`w-full md:top-[40px] rounded-2xl flex flex-col md:gap-4 md:p-4 justify-center items-center bg-background shadow-2xl`}>
+                            <span className='w-full text-center text-[14px] md:mt-4'>{user.email}</span>
+                            <LogOutButton/>
                         </div>
                     </PopoverContent>
                 </Popover>

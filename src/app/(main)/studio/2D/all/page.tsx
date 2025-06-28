@@ -1,4 +1,5 @@
 import ModelStatsPage from "@/components/ModelStatsPage";
+import NavbarStudio from "@/components/NavbarStudio";
 import StatsPage from "@/components/StatsPage";
 import UnityWebGL from "@/components/UnityWebGL";
 import { models2D } from "@/lib/data/models";
@@ -23,13 +24,18 @@ export default async function Home() {
   }
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-start">
-      <main className="w-full flex flex-col items-center justify-start">
-        <UnityWebGL model={models2D.all}/>
-        <StatsPage/>
-        <ModelStatsPage model="all2D"/>
-      </main>
-    </div>
+    <>
+      <NavbarStudio style={1} />
+      <div className='mt-[60px] md:mt-[80px] md:min-h-[calc(100vh-80px)] h-full text-black'>
+        <div className="w-full h-full flex flex-col items-center justify-start">
+          <main className="w-full flex flex-col items-center justify-start">
+            <UnityWebGL model={models2D.all}/>
+            <StatsPage/>
+            <ModelStatsPage model="all2D"/>
+          </main>
+        </div>
+      </div>
+    </>
   );
 }
 
