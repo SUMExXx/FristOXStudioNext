@@ -7,7 +7,7 @@ function QNAElement({question, answer}: QNAElementProps) {
   const [open, setOpen] = React.useState<boolean>(false)
 
   return (
-    <button onClick={() => setOpen(!open)} className={`relative flex flex-col w-full rounded-[40px] text-[40px] transition-all duration-300 ease-in-out ${open? 'h-[120px]': 'h-[80px]'}`}>
+    <button onClick={() => setOpen(!open)} className={`relative flex flex-col w-full cursor-pointer rounded-[40px] text-[40px] transition-all duration-300 ease-in-out ${open? 'h-[120px]': 'h-[80px]'}`}>
       <div className={`z-10 flex w-full md:h-[80px] rounded-[40px] items-center justify-between md:px-20 md:py-5 md:gap-20 bg-foreground text-[60px]`}>
         <h4 className='custom-display1 text-background text-left w-full'>{question}</h4>
         <div className='flex items-center justify-center outline-none'>

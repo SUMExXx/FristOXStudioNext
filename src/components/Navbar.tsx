@@ -41,7 +41,7 @@ const Navbar = async () => {
             
             <Link rel="canonical" href={process.env.NEXT_PUBLIC_BASE_URL || '/'} className='flex items-center gap-2 md:gap-4 outline-none'>
                 <div className='flex items-center md:gap-[10px] h-full'>
-                    <Image src={'/icons/firstox-studio.png'} width={737} height={286} draggable={false} alt={"Frist'OX Studio"} className='md:h-full w-auto object-contain'/>
+                    <Image src={'/icons/firstox-studio.png'} width={737} height={286} draggable={false} alt={"Frist'OX Studio"} className='md:h-full w-auto object-contain pointer-events-none'/>
                     {/* <Logo className='md:w-[235px] md:h-[30px] w-[235px] h-[20px]' fontSize='inherit' height={30} width={235}/> */}
                 </div>
             </Link>
