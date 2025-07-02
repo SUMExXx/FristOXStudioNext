@@ -1,29 +1,46 @@
-"use client";
+import SuccessComp from "@/components/SuccessComp";
+import { cookies } from "next/headers";
+import { redirect } from "next/navigation";
 
-import { useEffect } from "react";
-import { useRouter } from "next/navigation";
-import { contents } from "@/lib/data/website";
+const Success = async () => {
 
-export default function Success() {
+  let isPremium = false;
 
-  const router = useRouter();
+  const checkPremium = async () => {
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      router.push("/signin"); // Redirect to /signin after 5 seconds
-    }, 5000);
+    const cookiesData = await cookies();
+    
+    const token = cookiesData.get('token')?.value;
 
-    return () => clearTimeout(timer); // Cleanup timeout on unmount
-  }, [router]);
+    if (!token) {
+      redirect('/signin');
+    }
+
+    const response = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/api/users/verify-plan`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      body: JSON.stringify({ token })
+    });
+
+    if (!response.ok) {
+      redirect('/signin');
+    }
+
+    const data = await response.json();
+    console.log(data)
+
+    isPremium = data.plan == 'premium';
+
+  }
+
+  await checkPremium();
 
   return (
-    <div className="w-full h-full flex flex-col items-center justify-center">
-      <main className="w-full h-full flex flex-col items-center justify-center">
-        <section className="w-full h-full flex flex-col justify-center items-center md:gap-20">
-          <h1 className="custom-heading1 text-foreground">{contents.text25}</h1>
-          <p className="custom-display text-primary">{contents.text26}</p>
-        </section>
-      </main>
-    </div>
-  );
+    <SuccessComp text={isPremium? 'YOUR SUBSCRIPTION IS ACTIVATED': 'SUBSCRIPTION NOT ACTIVATED'}/>
+  )
 }
+
+export default Success;
