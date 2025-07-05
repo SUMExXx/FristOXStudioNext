@@ -184,7 +184,7 @@ export const contents: WebContent= {
     qna: [
         {
             question: 'Do I need to sign up to start?',
-            answer: 'Nope. Just upload and go. Zero barriers to creativity.'
+            answer: 'Yes. You can sign up and upgrade to Premium plan in Studio.'
         },
         {
             question: 'Is my artwork stored on your servers?',

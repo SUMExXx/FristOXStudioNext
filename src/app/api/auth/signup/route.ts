@@ -4,6 +4,7 @@ import nodemailer from 'nodemailer';
 import connectDB from '@/lib/mongodb';
 import UnverifiedUser from '@/lib/models/unverifieduser';
 import User from '@/lib/models/user';
+import { transporterCommon } from '@/lib/utils/email';
 
 export async function POST(req: Request) {
   try {
@@ -28,42 +29,33 @@ export async function POST(req: Request) {
     // Save user in MongoDB
     const user = new UnverifiedUser({ email, hashedPassword });
 
-    // Send verification email
-    const transporter = nodemailer.createTransport({
-      service: process.env.EMAIL_SERVICE,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_APP_PASS,
-      },
-    });
-
     const mailOptions = {
-        from: process.env.EMAIL_USER,
-        to: email,
-        subject: 'Verify Your Account',
-        html: `
-            <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4;">
-            <div style="max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
-                <h2 style="color: #4CAF50; text-align: center;">Verify Your Account</h2>
-                <p style="font-size: 16px; color: #333;">Hello,</p>
-                <p style="font-size: 16px; color: #333;">
-                Thank you for signing up! Please verify your account by clicking the button below.
-                </p>
-                <div style="text-align: center; margin: 20px 0;">
-                <a href="${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/verify?email=${email}&token=${user._id}" 
-                    style="padding: 12px 20px; font-size: 16px; color: white; background-color: #4CAF50; text-decoration: none; border-radius: 5px; display: inline-block;">
-                    Verify My Account
-                </a>
-                </div>
-                <p style="font-size: 14px; color: #666;">If you did not request this, you can ignore this email.</p>
-                <hr style="border: 0; height: 1px; background: #ddd; margin: 20px 0;">
-                <p style="font-size: 12px; text-align: center; color: #999;">&copy; ${new Date().getFullYear()} Your Company Name. All rights reserved.</p>
-            </div>
-            </div>
-        `
+      from: process.env.EMAIL_USER,
+      to: email,
+      subject: 'Verify Your Account',
+      html: `
+          <div style="font-family: Arial, sans-serif; padding: 20px; background-color: #f4f4f4;">
+          <div style="max-width: 600px; margin: auto; background: white; padding: 20px; border-radius: 10px; box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);">
+              <h2 style="color: #4CAF50; text-align: center;">Verify Your Account</h2>
+              <p style="font-size: 16px; color: #333;">Hello,</p>
+              <p style="font-size: 16px; color: #333;">
+              Thank you for signing up! Please verify your account by clicking the button below.
+              </p>
+              <div style="text-align: center; margin: 20px 0;">
+              <a href="${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/verify?email=${email}&token=${user._id}" 
+                  style="padding: 12px 20px; font-size: 16px; color: white; background-color: #4CAF50; text-decoration: none; border-radius: 5px; display: inline-block;">
+                  Verify My Account
+              </a>
+              </div>
+              <p style="font-size: 14px; color: #666;">If you did not request this, you can ignore this email.</p>
+              <hr style="border: 0; height: 1px; background: #ddd; margin: 20px 0;">
+              <p style="font-size: 12px; text-align: center; color: #999;">&copy; ${new Date().getFullYear()} Your Company Name. All rights reserved.</p>
+          </div>
+          </div>
+      `
     };
 
-    await transporter.sendMail(mailOptions);
+    await transporterCommon.sendMail(mailOptions);
 
     await user.save();
 

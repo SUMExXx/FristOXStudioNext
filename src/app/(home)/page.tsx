@@ -10,13 +10,36 @@ import DrawIcon from '@mui/icons-material/Draw';
 import VerifiedOutlinedIcon from '@mui/icons-material/VerifiedOutlined';
 import QNAElement from '@/components/QNAElement';
 
-const models: string[] = [
-  '/images/beanie.png',
-  '/images/cap.png',
-  '/images/oversized-tshirt.png',
-  '/images/pant-animated.png',
-  '/images/tshirt-animated.png',
-  '/images/tshirt.png'
+interface ModelPreview {
+  img: string;
+  url: string
+}
+
+const models: ModelPreview[] = [
+  {
+    img: '/images/beanie.png',
+    url: '/studio/3D/tshirt/beanie'
+  },
+  {
+    img: '/images/cap.png',
+    url: '/studio/3D/tshirt/cap'
+  },
+  {
+    img: '/images/oversized-tshirt.png',
+    url: '/studio/3D/tshirt/oversized-tshirt'
+  },
+  {
+    img: '/images/pant-animated.png',
+    url: '/studio/3D/tshirt/pant-animated'
+  },
+  {
+    img: '/images/tshirt-animated.png',
+    url: '/studio/3D/tshirt/tshirt-animated'
+  },
+  {
+    img: '/images/tshirt.png',
+    url: '/studio/3D/tshirt/tshirt'
+  }
 ]
 
 const models2D: string[] = [
@@ -34,15 +57,17 @@ export default function Home() {
     <div className="w-full h-full flex flex-col items-center justify-start">
       <main className="w-full flex flex-col items-center justify-start">
         
-        <section className='w-full flex flex-col items-center justify-start md:px-20 md:py-10 '>
+        <section className='w-full flex items-start justify-center md:gap-20 md:px-20 md:py-10 '>
           <div className='bg-primary rounded-[40px] flex justify-center items-center md:h-[520px] w-full md:px-10 overflow-hidden relative'>
             <div className='flex flex-col w-full items-start justify-center gap-8 md:pr-10'>
-              <h1 className='z-30 font-bold text-background custom-heading1 md:w-[900px] leading-[90px]'>{contents.mainTitle}</h1>
+              <h1 className='z-30 font-bold text-background text-[52px] italic md:w-full leading-[90px]'>{contents.mainTitle}</h1>
               <p className='z-30 custom-text2 md:w-[640px] text-background justify-start text-left'>{contents.mainSubtitle}</p>
               <Link href='/studio' className='md:px-10 md:py-5 rounded-full bg-background text-foreground custom-display1'>
                 {contents.mainButton}
               </Link>
             </div>
+          </div>
+          <div className='bg-primary rounded-[40px] flex justify-center items-center md:h-[520px] md:w-[800px] w-full md:px-10 overflow-hidden relative'>
             <video autoPlay loop muted playsInline className='absolute h-[600px] right-0 object-cover bg-transparent pointer-events-none overflow-hidden'>
               <source src="/videos/hero-vid.mp4" type="video/webm" />
               <img src="/videos/GIF-12.gif" alt="Fallback image" />
@@ -71,11 +96,11 @@ export default function Home() {
             </h2>
             <div className='flex flex-wrap md:gap-10 justify-center items-start w-full'>
               {models.map((model, index) => (
-                <div key={index} className='flex flex-col items-center justify-center gap-4 rounded-[40px] bg-primary md:w-[360px] md:h-[360px] overflow-hidden'>
-                  <Image width={360} height={360} src={model} alt={"name"} draggable={false} className='object-cover w-full h-full pointer-events-none'/>
+                <Link href={model.url} key={index} className='flex flex-col items-center justify-center gap-4 rounded-[40px] bg-primary md:w-[360px] md:h-[360px] overflow-hidden'>
+                  <Image width={360} height={360} src={model.img} alt={"name"} draggable={false} className='object-cover w-full h-full pointer-events-none'/>
                   {/* <h3 className='text-2xl font-bold text-primary font-lily'>{model.name}</h3>
                   <p className='text-lg font-medium text-primary'>{model.name}</p> */}
-                </div>
+                </Link>
               ))}
             </div>
           </div>
